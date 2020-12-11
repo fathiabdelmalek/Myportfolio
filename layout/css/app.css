@@ -1,0 +1,18 @@
+.main-table {
+    border-color: black;
+    background-color: #EAEAEA;
+    box-shadow: 3px 3px 10px #CCC;
+    -moz-box-shadow: 3px 3px 10px #CCC;
+    -webkit-box-shadow: 3px 3px 10px #CCC;
+}
+
+.main-table th{
+    background-color: #333;
+    color: #eee;
+}
+
+
+
+.navbar {
+    margin-bottom: 10px;
+}
