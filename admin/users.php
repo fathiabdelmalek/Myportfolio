@@ -2,7 +2,7 @@
 session_start();
 $title = 'Users Manage';
 include 'init.php';
-if(!isset($_SERSSION['user']))
+if(!isset($_SESSION['user']))
     redirect(1);
 
 $sql = $con->prepare("SELECT * FROM users WHERE id != 1");
@@ -11,6 +11,7 @@ $rows = $sql->fetchAll();
 ?>
 <h1 class="text-center">Users Manage</h1>
 <div class="container">
+  <a href="add.php" class="btn btn-primary"><i class="fa fa-plus"></i> New User</a><br><br>
     <div class="table-responsive">
         <table class="main-table table table-bordered text-center">
             <tr>
@@ -25,7 +26,7 @@ $rows = $sql->fetchAll();
                 <td><?php echo $row['id']; ?></td>
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
-                <td><?php echo ''; ?></td>
+                <td><?php echo $row['dateJoined']; ?></td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success" role="button">
                         <i class="fa fa-edit"></i> Edit
@@ -37,7 +38,6 @@ $rows = $sql->fetchAll();
             </tr>
             <?php } ?>
         </table>
-    <a href="add.php" class="btn btn-primary"><i class="fa fa-plus"></i> New User</a>
     </div>
 </div>
 <?php include $inc . 'footer.php';

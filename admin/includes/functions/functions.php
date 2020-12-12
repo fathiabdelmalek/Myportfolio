@@ -22,6 +22,13 @@ function redirect($seconds = 3, $url = null) {
     elseif($url = 'back') {
         $url = (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '') ? $_SERVER['HTTP_REFERER'] : 'index.php';
     }
-    header("refresh:$seconds;url=$url");
+    header("refresh:$seconds;location:$url");
     exit();
+}
+
+function countItems($table) {
+    global $con;
+    $sql = $con->prepare("SELECT COUNT(id) FROM $table");
+    $sql->execute();
+    return $sql->fetchColumn();
 }

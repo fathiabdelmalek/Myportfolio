@@ -2,7 +2,7 @@
 session_start();
 $title = 'Delete user';
 include 'init.php';
-if(!isset($_SERSSION['user']))
+if(!isset($_SESSION['user']))
     redirect(1);
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
