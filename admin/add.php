@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = $con->prepare("SELECT * FROM users WHERE username=:username");
         $sql->execute(array('username'=>$username));
         if($sql->rowCount() > 0)
-            $errors['name'] = "This username is alredy used";
+            $errors['name'] = "This username is already used";
     }
     $sql = $con->prepare("SELECT * FROM users WHERE email=:email");
     $sql->bindParam(':email', $email);
