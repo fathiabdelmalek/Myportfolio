@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aae924b9-d190-4c29-80ca-13fe7bfe92eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/functions/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
   <component name="ProjectId" id="1lWneTI4UOjwuCIhmsH2Klh4K1G" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -28,11 +33,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -46,10 +52,39 @@
       <workItem from="1607721833232" duration="8373000" />
       <workItem from="1607775780810" duration="7032000" />
       <workItem from="1607796186944" duration="9890000" />
+      <workItem from="1607864566715" duration="7395000" />
+      <workItem from="1607897366161" duration="3406000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/Myportfolio" />
+    </ignored-roots>
   </component>
 </project>

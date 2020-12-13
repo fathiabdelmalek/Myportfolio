@@ -40,7 +40,7 @@ $users = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
                     <?php foreach($users as $user) { ?>
                         <ul class="row list-unstyled latest">
                             <li class="col-sm-3">
-                                <a href="profile.php?id=<?php echo $user['id']; ?>">
+                                <a href="profile.php?username=<?php echo $user['username']; ?>">
                                     <?php echo $user['username'] ?>
                                 </a>
                             </li>

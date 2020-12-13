@@ -1,13 +1,15 @@
 <?php
-    session_start();
-    $title = $_SESSION['user'] . ' Profile';
-    include 'init.php';
-
+session_start();
+$title = isset($_GET['username']) ? $_GET['username'] : header('location: index.php');
+include 'init.php';
+$sql = $con->prepare("SELECT * FROM users WHERE username='$title'");
+$sql->execute();
+$row = $sql->fetch();
 ?>
 <h1 class="text-center">Profile Page</h1>
-<?php include $inc . 'footer.php' ?>
-
-
 <div class="container">
-    <h1 class="text-center"></h1>
+    <h2>User Statistics</h2>
+    Username: <?php echo $row['username']; ?><br>
+    Email: <?php echo $row['email']; ?><br>
 </div>
+<?php include $inc . 'footer.php';

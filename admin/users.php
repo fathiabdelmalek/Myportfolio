@@ -24,14 +24,18 @@ $rows = $sql->fetchAll();
             <?php foreach($rows as $row) { ?>
             <tr>
                 <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['username']; ?></td>
+                <td>
+                    <a href="profile.php?username=<?php echo $row['username']; ?>">
+                        <?php echo $row['username']; ?>
+                    </a>
+                </td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['dateJoined']; ?></td>
                 <td>
                     <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success" role="button">
                         <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>&do=delete" class="btn btn-danger confirm-delete" role="button">
+                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger confirm-delete" role="button">
                        <i class="fa fa-close"></i> Delete
                     </a>
                 </td>
