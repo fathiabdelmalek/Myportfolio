@@ -4,7 +4,7 @@ $title = 'Delete user';
 include 'init.php';
 if(!isset($_SESSION['user']))
     redirect(1);
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if(isset($_GET['do']) && $_GET['do'] == 'delete') {
     $id = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
     $sql = $con->prepare("SELECT * FROM users WHERE id=:id");
     $sql->bindParam('id', $id);
@@ -15,13 +15,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql->bindParam(':id', $id);
         $sql->execute();
         echo '<div class="alert alert-success">' . $count . ' Record Deleted</div>';
-        redirect(3);
+        redirect(3, 'back');
     } else {
         echo '<div class="alert alert-warning">Wrong id</div>';
-        redirect(3);
+        redirect(3, 'back');
     }
 } else {
     echo '<div class="alert alert-danger">Can\'t access to the page direclty</div>';
-    redirect(1, 'add.php');
+    redirect(2, 'back');
 }
 include $inc . 'footer.php';

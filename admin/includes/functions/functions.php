@@ -19,10 +19,10 @@ function redirect($seconds = 3, $url = null) {
     if($url === null) {
         $url = 'index.php';
     }
-    elseif($url = 'back') {
+    else if($url === 'back') {
         $url = (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '') ? $_SERVER['HTTP_REFERER'] : 'index.php';
     }
-    header("refresh:$seconds;location:$url");
+    header("refresh:$seconds;url=$url");
     exit();
 }
 
@@ -31,4 +31,11 @@ function countItems($table) {
     $sql = $con->prepare("SELECT COUNT(id) FROM $table");
     $sql->execute();
     return $sql->fetchColumn();
+}
+
+function getLatest($cols, $table, $order, $limit = 5) {
+    global $con;
+    $sql = $con->prepare("SELECT $cols FROM $table ORDER BY $order DESC LIMIT $limit");
+    $sql->execute();
+    return $sql->fetchAll();
 }

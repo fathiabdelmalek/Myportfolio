@@ -31,7 +31,7 @@ $rows = $sql->fetchAll();
                     <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success" role="button">
                         <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger confirm-delete" role="button" method="POST">
+                    <a href="delete.php?id=<?php echo $row['id']; ?>&do=delete" class="btn btn-danger confirm-delete" role="button">
                        <i class="fa fa-close"></i> Delete
                     </a>
                 </td>

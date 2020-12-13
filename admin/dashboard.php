@@ -1,5 +1,4 @@
-
-<?php
+  <?php
 session_start();
 $title = 'Dashboard';
 include 'init.php';
@@ -7,6 +6,7 @@ include 'init.php';
 if (!isset($_SESSION['user']))
     header('location: index.php');
 $count = countItems('users');
+$users = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
 ?>
 <h1 class="text-center">DashBoard</h1>
 <div class="container text-center home-stats">
@@ -37,7 +37,26 @@ $count = countItems('users');
                     <i class="fa fa-users"></i> Recently Users
                 </div>
                 <div class="card-body">
-                    Test
+                    <?php foreach($users as $user) { ?>
+                        <ul class="row list-unstyled latest">
+                            <li class="col-sm-3">
+                                <a href="profile.php?id=<?php echo $user['id']; ?>">
+                                    <?php echo $user['username'] ?>
+                                </a>
+                            </li>
+                            <li class="col-sm-3">
+                                <?php echo $user['dateJoined'] ?>
+                            </li>
+                            <li class="col-sm-6">
+                                <a href="edit.php?id=<?php echo $user['id']; ?>" class="btn btn-success" role="button">
+                                    <i class="fa fa-edit"></i> Edit
+                                </a>
+                                <a href="delete.php?id=<?php echo $user['id']; ?>" class="btn btn-danger confirm-delete" role="button" method="POST">
+                                    <i class="fa fa-close"></i> Delete
+                                </a>
+                            </li>
+                        </ul>
+                    <?php } ?>
                 </div>
             </div>
         </div>
