@@ -4,12 +4,12 @@ $title = 'Users Manage';
 include 'init.php';
 if(!isset($_SESSION['user']))
     redirect(1);
-
-$sql = $con->prepare("SELECT * FROM users WHERE id != 1");
-$sql->execute();
-$rows = $sql->fetchAll();
+//$sql = $con->prepare("SELECT * FROM users WHERE id != 1");
+//$sql->execute();
+//$rows = $sql->fetchAll();
+$rows = selectItems('*', 'users', 'id!=1');
 ?>
-<h1 class="text-center">Users Manage</h1>
+<h1 class="text-center">Users Management</h1>
 <div class="container">
   <a href="add.php" class="btn btn-primary"><i class="fa fa-plus"></i> New User</a><br><br>
     <div class="table-responsive">

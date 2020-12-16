@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 					<h3 class="text-center font-weight-light my-4">Admin Login</h3>
 				</div>
 				<div class="card-body">
-					<form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+					<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
 						<div class="form-group">
 							<label>Email address</label>
 							<input required class="form-control" type="email" name="email" placeholder="Email">

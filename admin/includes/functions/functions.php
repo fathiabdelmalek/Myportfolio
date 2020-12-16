@@ -26,9 +26,30 @@ function redirect($seconds = 3, $url = null) {
     exit();
 }
 
-function countItems($table) {
+function selectItems($select, $table, $value = null, $ordering = null, $sorting = null) {
     global $con;
-    $sql = $con->prepare("SELECT COUNT(id) FROM $table");
+    $stmt = "SELECT $select FROM $table";
+    if(!empty($value))
+        $stmt .= " WHERE $value";
+    if(!empty($ordering))
+        $stmt .= " ORDER BY $ordering";
+    if(!empty($sorting))
+        $stmt .= " $sorting";
+    $sql = $con->prepare($stmt);
+    $sql->execute();
+    return $sql->fetchAll();
+}
+
+function deleteRecord($table, $select, $value) {
+    global $con;
+    $sql = $con->prepare("DELETE FROM $table WHERE $select=:value");
+    $sql->bindParam('value', $value);
+    $sql->execute();
+}
+
+function countItems($col, $table) {
+    global $con;
+    $sql = $con->prepare("SELECT COUNT($col) FROM $table");
     $sql->execute();
     return $sql->fetchColumn();
 }

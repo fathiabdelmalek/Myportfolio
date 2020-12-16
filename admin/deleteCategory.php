@@ -1,16 +1,16 @@
 <?php
 session_start();
-$title = 'Delete user';
+$title = 'Delete Category';
 include 'init.php';
 if(!isset($_SESSION['user']))
     redirect(1);
 $id = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
-$sql = $con->prepare("SELECT * FROM users WHERE id=:id");
+$sql = $con->prepare("SELECT * FROM categories WHERE id=:id");
 $sql->bindParam('id', $id);
 $sql->execute();
 $count = $sql->rowCount();
 if($count > 0) {
-    $sql = $con->prepare("DELETE FROM users WHERE id = :id");
+    $sql = $con->prepare("DELETE FROM categories WHERE id = :id");
     $sql->bindParam(':id', $id);
     $sql->execute();
     echo '<div class="alert alert-success">' . $count . ' Record Deleted</div>';

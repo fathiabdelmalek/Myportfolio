@@ -2,7 +2,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-
 .main-table {
     border-color: black;
     background-color: #EFEFEF;
@@ -55,3 +54,76 @@ h1 {
 .latest .btn {
     padding: 0 8px 2px;
 }
+
+/* Categories Page */
+
+.cats hr {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.cats .ordering a {
+    color: #888;
+    text-decoration: none;
+}
+
+.cats .ordering .active {
+    color: #F00;
+    font-weight: bolder;
+}
+
+.cats .cat {
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cats .cat .hidden-btn {
+    transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    position: absolute;
+    top: 15px;
+    right: -150px;
+}
+
+.cats .cat:hover .hidden-btn {
+    right: 10px;
+}
+
+.cats .cat .btn {
+    padding: 0 8px 2px;
+}
+
+.cats .card-body {
+    padding: 0;
+}
+
+.cats .cat:hover {
+    background-color: #EEE;
+}
+
+.cats .cat h3 {
+    margin: 0 0 10px;
+}
+
+.cats .cat:last-of-type ~ hr {
+    display: none;
+}
+
+.hidden {
+    color: #777777;
+    font-weight: bold;
+}
+
+.comments {
+    color: #6a1a21;
+    font-weight: bold;
+}
+
+.ads {
+    color: #0c4128;
+    font-weight: bold;
+}
+
+/* Categories Page */

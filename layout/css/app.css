@@ -1,3 +1,8 @@
+h1 {
+    margin-bottom: 20px;
+}
+
+
 .main-table {
     border-color: black;
     background-color: #EFEFEF;
@@ -11,8 +16,55 @@
     color: #eee;
 }
 
+.main-table .btn {
+    padding: 3px 10px;
+}
 
+.home-stats .stats {
+    background-color: #BBB;
+    border: #777 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+}
 
-.navbar {
-    margin-bottom: 10px;
+.home-stats .stats span {
+    font-size: 40px;
+    display: block;
+}
+
+.latest {
+    background-color: #DDD;
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.latest:nth-child(even) {
+    background-color: #EEE;
+}
+
+.latest a {
+    text-decoration: none;
+}
+
+.latest li {
+    padding: 5px 0;
+}
+
+.latest .btn {
+    padding: 0 8px 2px;
+}
+
+.cat {
+    background-color: #E00;
+}
+
+.cats .cat h3 {
+    color: #777777;
+    background-color: #0c63e4;
+}
+
+.cats .cat:last-of-type ~ hr {
+    display: none;
 }

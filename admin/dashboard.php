@@ -5,25 +5,32 @@ include 'init.php';
 
 if (!isset($_SESSION['user']))
     header('location: index.php');
-$count = countItems('users');
-$users = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
+$users = countItems('id', 'users');
+$categories = countItems('id', 'categories');
+$users_latest = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
 ?>
 <h1 class="text-center">DashBoard</h1>
 <div class="container text-center home-stats">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="stats">
                 Total Users
-                <span><?php echo $count ?></span>
+                <span><?php echo $users ?></span>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <div class="stats">
+                Total Categories
+                <span><?php echo $categories ?></span>
+            </div>
+        </div>
+        <div class="col-md-3">
             <div class="stats">
                 Total Portfolios
                 <span>430</span>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="stats">
                 Total Communts
                 <span>3400</span>
@@ -37,7 +44,7 @@ $users = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
                     <i class="fa fa-users"></i> Recently Users
                 </div>
                 <div class="card-body">
-                    <?php foreach($users as $user) { ?>
+                    <?php foreach($users_latest as $user) { ?>
                         <ul class="row list-unstyled latest">
                             <li class="col-sm-3">
                                 <a href="profile.php?username=<?php echo $user['username']; ?>">

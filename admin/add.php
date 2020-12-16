@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h3 class="text-center font-weight-light my-4">Add New User</h3>
                 </div>
                 <div class="card-body">
-                    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                         <div class="form-group">
                             <label>User name</label>
                             <input required class="form-control" type="text" name="username" placeholder="Username">
