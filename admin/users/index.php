@@ -1,11 +1,8 @@
 <?php
-//define('DS', DIRECTORY_SEPARATOR);
-//define('ROOT', dirname(__FILE__));
 session_start();
 $title = 'Users Manage';
-//include $_SERVER['DOCUMENT_ROOT'] . 'admin/init.php';
 include '../init.php';
-//include ROOT . DS . 'admin\init.php';
+echo ROOT;
 if(!isset($_SESSION['user']))
     redirect(1);
 
@@ -48,4 +45,4 @@ $rows = $sql->fetchAll();
             </table>
         </div>
     </div>
-<?php include $_SERVER['DOCUMENT_ROOT'] . $inc . 'footer.php';
+<?php include $inc . 'footer.php';

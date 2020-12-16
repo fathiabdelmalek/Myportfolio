@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label class="form-label">Ordering</label>
                             <input class="form-control" type="number" name="ordering" placeholder="The ordering">
                         </div><br>
-                        <div class="form-group form-group-lg">
+                        <div class="form-group">
                             <label class="form-label">Visibility</label>
                             <div class="form-check">
                                 <span>
@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </span>
                             </div>
                         </div><br>
-                        <div class="form-group form-group-lg">
+                        <div class="form-group">
                             <label class="form-label">Comments</label>
                             <div class="form-check">
                                 <span>
@@ -86,7 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </span>
                             </div>
                         </div><br>
-                        <div class="form-group form-group-lg">
+                        <div class="form-group">
                             <label class="form-label">Ads</label>
                             <div class="form-check">
                                 <span>

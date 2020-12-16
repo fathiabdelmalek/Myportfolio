@@ -10,7 +10,7 @@ $sql->bindParam('id', $id);
 $sql->execute();
 $count = $sql->rowCount();
 if($count > 0) {
-    $sql = $con->prepare("DELETE FROM categories WHERE id = :id");
+    $sql = $con->prepare("DELETE FROM categories WHERE id=:id");
     $sql->bindParam(':id', $id);
     $sql->execute();
     echo '<div class="alert alert-success">' . $count . ' Record Deleted</div>';

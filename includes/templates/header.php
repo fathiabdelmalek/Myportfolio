@@ -6,6 +6,6 @@
     <link rel="stylesheet" href="<?php echo $css . 'bootstrap.min.css';?>">
     <link rel="stylesheet" href="<?php echo $css . 'font-awesome.min.css';?>">
     <link rel="stylesheet" href="<?php echo $css . 'app.css';?>">
-    <title>MyPortfolio</title>
+    <title><?php echo setTitle() ?></title>
 </head>
-<body class="bg-primary">
+<body style="background-color: #d5d5d5;">

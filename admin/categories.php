@@ -39,7 +39,7 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
                             echo $row['description'];
                         ?>
                     </p>
-                    <?php if($row['hidden'] == 0) { ?>
+                    <?php if($row['hidden'] == 1) { ?>
                         <span class="hidden">Hidden</span>
                     <?php } ?>
                     <?php if($row['comments'] == 1) { ?>
