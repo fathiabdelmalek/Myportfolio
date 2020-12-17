@@ -11,4 +11,16 @@ $(function () {
     $('.confirm-delete').click(function () {
         return confirm("Are you sure you want to delete this user?");
     });
+
+    $('.cat h3').click(function() {
+        $(this).next('.view').fadeToggle(200);
+    });
+
+    $('.options span').click(function() {
+        $(this).addClass('active').siblings('span').removeClass('active');
+        if($(this).data('view') === 'full')
+            $('.cat .view').fadeIn(200);
+        else
+            $('.cat .view').fadeOut(200);
+    });
 });

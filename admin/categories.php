@@ -15,10 +15,13 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
     <div class="card">
         <div class="card-header">
             Categories
-            <div class="ordering pull-right">
-                Ordering:
-                <a <?php if($sort == 'ASC') { echo 'class="active"'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=ASC">ASC</a> |
-                <a <?php if($sort == 'DESC') { echo 'class="active"active'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=DESC">DESC</a>
+            <div class="options pull-right">
+                <i class="fa fa-sort"></i> Ordering: [
+                <a <?php if($sort == 'ASC') { echo 'class="active"'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=ASC"><i class="fa fa-sort-alpha-asc"></i></a> |
+                <a <?php if($sort == 'DESC') { echo 'class="active"active'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=DESC"><i class="fa fa-sort-alpha-desc"></i></a>]
+                View: [
+                <span class="active" data-view="full">Full</span> |
+                <span>Classic</span>]
             </div>
         </div>
         <div class="card-body">
@@ -31,23 +34,25 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
                         <a class="btn btn-danger" href="deleteCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
                     </div>
                     <h3><?php echo $row['title'] ?></h3>
-                    <p>
-                        <?php
-                        if($row['description'] == '')
-                            echo 'This category has no description';
-                        else
-                            echo $row['description'];
-                        ?>
-                    </p>
-                    <?php if($row['hidden'] == 1) { ?>
-                        <span class="hidden">Hidden</span>
-                    <?php } ?>
-                    <?php if($row['comments'] == 1) { ?>
-                        <span class="comments">Comments is on</span>
-                    <?php } ?>
-                    <?php if($row['ads'] == 1) { ?>
-                        <span class="ads">Ads in on</span>
-                    <?php } ?>
+                    <div class="view">
+                        <p>
+                            <?php
+                            if($row['description'] == '')
+                                echo 'This category has no description';
+                            else
+                                echo $row['description'];
+                            ?>
+                        </p>
+                        <span class="<?php if($row['comments'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
+                            Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
+                        </span>
+                        <span class="<?php if($row['ads'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
+                            Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
+                        </span>
+                        <?php if($row['hidden'] == 1) { ?>
+                            <span class="hidden"><i class="fa fa-eye-slash"></i> Hidden</span>
+                        <?php } ?>
+                    </div>
                 </div>
                 <hr>
             <?php }} ?>

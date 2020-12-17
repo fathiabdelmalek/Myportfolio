@@ -1,13 +1,21 @@
 <?php
-define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', dirname(__FILE__));
+//define('DS', DIRECTORY_SEPARATOR);
+//define('ROOT', dirname(__FILE__));
 
 $css    = 'layout/css/';
-$js     = 'layout/js/';
 $fonts  = 'layout/fonts/';
 $images = 'layout/images/';
+$js     = 'layout/js/';
 
-$inc   = 'includes/templates/';
+$fun    = 'includes/functions/';
+$lng    = 'includes/languages/';
+$plg    = 'includes/plugins/';
+$inc    = 'includes/templates/';
 
+include 'connect.php';
+
+include $fun . 'functions.php';
 include $inc . 'header.php';
-include $inc . 'nav.php';
+if(!isset($nav))
+    include $inc . 'nav.php';
+

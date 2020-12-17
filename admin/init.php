@@ -1,17 +1,17 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
-//define('ROOT', dirname(__FILE__));
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+define('ROOT', dirname(__FILE__));
+//define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-$css    = ROOT . 'admin/layout/css/';
-$fonts  = ROOT . 'admin/layout/fonts/';
-$images = ROOT . 'admin/layout/images/';
-$js     = ROOT . 'admin/layout/js/';
-
-$fun    = ROOT . 'admin/includes/functions/';
-$lng    = ROOT . 'admin/includes/languages/';
-$plg    = ROOT . 'admin/includes/plugins/';
-$inc    = ROOT . 'admin/includes/templates/';
+//$css    = ROOT . 'admin/layout/css/';
+//$fonts  = ROOT . 'admin/layout/fonts/';
+//$images = ROOT . 'admin/layout/images/';
+//$js     = ROOT . 'admin/layout/js/';
+//
+//$fun    = ROOT . 'admin/includes/functions/';
+//$lng    = ROOT . 'admin/includes/languages/';
+//$plg    = ROOT . 'admin/includes/plugins/';
+//$inc    = ROOT . 'admin/includes/templates/';
 
 //$css    = ROOT . 'layout/css/';
 //$fonts  = ROOT . 'layout/fonts/';
@@ -52,6 +52,7 @@ $fun    = 'includes/functions/';
 $lng    = 'includes/languages/';
 $plg    = 'includes/plugins/';
 $inc    = 'includes/templates/';
+
 include 'connect.php';
 
 include $fun . 'functions.php';
