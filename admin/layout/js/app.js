@@ -1,6 +1,15 @@
 $(function () {
     'use strict';
 
+    $("select").selectBoxIt({
+        autoWidth: false,
+        showFirstOption: false,
+        showEffect: "fadeIn",
+        showEffectSpeed: 400,
+        hideEffect: "fadeOut",
+        hideEffectSpeed: 400
+    });
+
     $('[placeholder]').focus(function () {
         $(this).attr('hint', $(this).attr('placeholder'));
         $(this).attr('placeholder', '');

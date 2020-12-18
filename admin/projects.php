@@ -1,20 +1,15 @@
 <?php
 session_start();
-$title = 'Categories Manage';
+$title = 'Projects Manage';
 include 'init.php';
-if(!isset($_SESSION['user']))
-    redirect(1);
-$arr = array('ASC', 'DESC');
-$sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
-$rows = selectItems('*', 'categories', null, 'ordering', $sort);
-//$sql = $con->prepare("SELECT * FROM categories");
+$sort = 'ASC';
 ?>
-<h1 class="text-center">Categories Management</h1>
+<h1 class="text-center">Projects Manager</h1>
 <div class="container cats">
-    <a href="addCategory.php" class="btn btn-primary"><i class="fa fa-plus"></i> New Category</a><br><br>
+    <a href="addProject.php" class="btn btn-primary"><i class="fa fa-plus"></i> New Project</a><br><br>
     <div class="card">
         <div class="card-header">
-            Categories
+            Projects
             <div class="options pull-right">
                 <i class="fa fa-sort"></i> Ordering: [
                 <a <?php if($sort == 'ASC') { echo 'class="active"'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=ASC"><i class="fa fa-sort-alpha-asc"></i></a> |
@@ -44,11 +39,11 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
                             ?>
                         </p>
                         <span class="<?php if($row['comments'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                            Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
-                        </span>
+                        Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
+                    </span>
                         <span class="<?php if($row['ads'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                            Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
-                        </span>
+                        Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
+                    </span>
                         <?php if($row['hidden'] == 1) { ?>
                             <span class="hidden"><i class="fa fa-eye-slash"></i> Hidden</span>
                         <?php } ?>

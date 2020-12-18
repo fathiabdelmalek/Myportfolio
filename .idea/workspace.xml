@@ -3,15 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aae924b9-d190-4c29-80ca-13fe7bfe92eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/addCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/addCategory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/functions/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/layout/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/init.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +38,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -72,6 +69,9 @@
       <workItem from="1608209385283" duration="742000" />
       <workItem from="1608210417961" duration="1283000" />
       <workItem from="1608214058006" duration="2510000" />
+      <workItem from="1608229944799" duration="363000" />
+      <workItem from="1608241150875" duration="6277000" />
+      <workItem from="1608297960246" duration="7222000" />
     </task>
     <servers />
   </component>

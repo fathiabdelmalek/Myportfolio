@@ -9,6 +9,9 @@
         <li class="nav-item">
           <a class="nav-link" href="categories.php">Categories</a>
         </li>
+          <li class="nav-item">
+              <a class="nav-link" href="projects.php">Projects</a>
+          </li>
         <li class="nav-item">
           <a class="nav-link" href="users.php">Users</a>
         </li>

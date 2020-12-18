@@ -49,8 +49,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label class="form-label">Title</label>
                             <input required class="form-control" type="text" name="title" placeholder="Category Title">
                             <span class="alert-sm alert-danger"><?php echo $errors['title']; ?></span>
-                        </div>
-                        <div class="form-group">
                         </div><br>
                         <div class="form-group">
                             <label class="form-label">Description</label>
