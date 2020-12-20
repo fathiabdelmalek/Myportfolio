@@ -8,7 +8,7 @@ if (!isset($_SESSION['user']))
 $users = countItems('id', 'users');
 $categories = countItems('id', 'categories');
 $projects = countItems('id', 'projects');
-$users_latest = getLatest('id, username, date_joined', 'users', 'date_joined', 6);
+$users_latest = getLatest('id, username, join_date', 'users', 'join_date', 6);
 $projects_latest = getLatest('id, name, add_date, username, category_title', 'projects_view', 'add_date', 6);
 ?>
 <h1 class="text-center">DashBoard</h1>
@@ -59,7 +59,7 @@ $projects_latest = getLatest('id, name, add_date, username, category_title', 'pr
                                         </a>
                                     </div>
                                     <div class="col-sm-4">
-                                        <?php echo $user['date_joined'] ?>
+                                        <?php echo $user['join_date'] ?>
                                     </div>
                                     <div class="col-sm-4">
                                         <a href="edit.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-success" role="button">
