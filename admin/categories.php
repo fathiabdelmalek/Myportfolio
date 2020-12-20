@@ -7,7 +7,6 @@ if(!isset($_SESSION['user']))
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
 $rows = selectItems('*', 'categories', null, 'ordering', $sort);
-//$sql = $con->prepare("SELECT * FROM categories");
 ?>
 <h1 class="text-center">Categories Management</h1>
 <div class="container cats">
@@ -30,7 +29,7 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
             <?php } else { foreach($rows as $row) { ?>
                 <div class="cat">
                     <div class="hidden-btn">
-                        <a class="btn btn-success" href="editCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
+                        <a class="btn btn-info" href="editCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
                         <a class="btn btn-danger" href="deleteCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
                     </div>
                     <h3><?php echo $row['title'] ?></h3>
@@ -49,7 +48,7 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
                         <span class="<?php if($row['ads'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
                             Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
                         </span>
-                        <?php if($row['hidden'] == 1) { ?>
+                        <?php if($row['visibility'] == 0) { ?>
                             <span class="hidden"><i class="fa fa-eye-slash"></i> Hidden</span>
                         <?php } ?>
                     </div>

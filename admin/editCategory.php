@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title          = test_input($_POST['title']);
     $description    = test_input($_POST['description']);
     $ordering       = test_input($_POST['ordering']);
-    $hidden         = test_input($_POST['hidden']);
+    $visibility         = test_input($_POST['visibility']);
     $comments       = test_input($_POST['comments']);
     $ads            = test_input($_POST['ads']);
     $sql = $con->prepare("SELECT * FROM categories WHERE title=:title");
@@ -25,12 +25,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['title'] = "This name is already used";
     if(empty($errors['title'])) {
         $sql = $con->prepare("UPDATE categories
-                                    SET title=:title, description=:description, ordering=:ordering, hidden=:hidden, comments=:comments, ads=:ads
+                                    SET title=:title, description=:description, ordering=:ordering, 
+                                        visibility=:visibility, comments=:comments, ads=:ads
                                     WHERE id=:id");
         $sql->bindParam('title', $title);
         $sql->bindParam('description', $description);
         $sql->bindParam('ordering', $ordering);
-        $sql->bindParam('hidden', $hidden);
+        $sql->bindParam('visibility', $visibility);
         $sql->bindParam('comments', $comments);
         $sql->bindParam('ads', $ads);
         $sql->bindParam('id', $id);
@@ -65,15 +66,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input class="form-control" type="number" name="ordering" value="<?php echo $row['ordering'] ?>">
                         </div><br>
                         <div class="form-group">
-                            <label class="form-label">Hidden</label>
+                            <label class="form-label">Visibility</label>
                             <div class="form-check">
                             <span>
-                                <input <?php if($row['hidden'] == 1) echo 'checked' ?> id="hiddeny" type="radio" name="hidden" value="1">
-                                <label for="hiddeny">Yes</label>
+                                <input <?php if($row['visibility'] == 1) echo 'checked' ?> id="visibilityy" type="radio" name="visibility" value="1">
+                                <label for="visibilityy">Visible</label>
                             </span>
                                 <span>
-                                <input <?php if($row['hidden'] == 0) echo 'checked' ?> id="hiddenn" type="radio" name="hidden" value="0">
-                                <label for="hiddenn">No</label>
+                                <input <?php if($row['visibility'] == 0) echo 'checked' ?> id="visibilityn" type="radio" name="visibility" value="0">
+                                <label for="visibilityn">Hidden</label>
                             </span>
                             </div>
                         </div><br>
@@ -81,7 +82,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label class="form-label">Comments</label>
                             <div class="form-check">
                             <span>
-                                <input <?php if($row['comments'] == 1) echo 'checked' ?> checked id="commentsy" type="radio" name="comments" value="1">
+                                <input <?php if($row['comments'] == 1) echo 'checked' ?> id="commentsy" type="radio" name="comments" value="1">
                                 <label for="commentsy">Yes</label>
                             </span>
                                 <span>
@@ -94,7 +95,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label class="form-label">Ads</label>
                             <div class="form-check">
                             <span>
-                                <input <?php if($row['ads'] == 1) echo 'checked' ?> checked id="adsy" type="radio" name="ads" value="1">
+                                <input <?php if($row['ads'] == 1) echo 'checked' ?> id="adsy" type="radio" name="ads" value="1">
                                 <label for="adsy">Yes</label>
                             </span>
                                 <span>

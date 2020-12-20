@@ -4,9 +4,6 @@ $title = 'Users Manage';
 include 'init.php';
 if(!isset($_SESSION['user']))
     redirect(1);
-//$sql = $con->prepare("SELECT * FROM users WHERE id != 1");
-//$sql->execute();
-//$rows = $sql->fetchAll();
 $rows = selectItems('*', 'users', 'id!=1');
 ?>
 <h1 class="text-center">Users Management</h1>
@@ -18,7 +15,7 @@ $rows = selectItems('*', 'users', 'id!=1');
                 <th>#ID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Joined Data</th>
+                <th>Join Date</th>
                 <th>Actions</th>
             </tr>
             <?php foreach($rows as $row) { ?>
@@ -30,12 +27,12 @@ $rows = selectItems('*', 'users', 'id!=1');
                     </a>
                 </td>
                 <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['dateJoined']; ?></td>
+                <td><?php echo $row['join_date']; ?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success" role="button">
+                    <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-info" role="button">
                         <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger confirm-delete" role="button">
+                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger confirm-delete" role="button">
                        <i class="fa fa-close"></i> Delete
                     </a>
                 </td>

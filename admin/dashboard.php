@@ -7,7 +7,9 @@ if (!isset($_SESSION['user']))
     header('location: index.php');
 $users = countItems('id', 'users');
 $categories = countItems('id', 'categories');
-$users_latest = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
+$projects = countItems('id', 'projects');
+$users_latest = getLatest('id, username, date_joined', 'users', 'date_joined', 6);
+$projects_latest = getLatest('id, name, add_date, username, category_title', 'projects_view', 'add_date', 6);
 ?>
 <h1 class="text-center">DashBoard</h1>
 <div class="container text-center home-stats">
@@ -27,7 +29,7 @@ $users_latest = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
         <div class="col-md-3">
             <div class="stats">
                 Total Portfolios
-                <span>430</span>
+                <span><?php echo $projects ?></span>
             </div>
         </div>
         <div class="col-md-3">
@@ -41,39 +43,72 @@ $users_latest = getLatest('id, username, dateJoined', 'users', 'dateJoined', 6);
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-users"></i> Recently Users
+                    <i class="fa fa-users"></i> Recently Registered Users
+                    <span class="toggle-info pull-right">
+                        <i class="fa fa-arrow-up"></i>
+                    </span>
                 </div>
                 <div class="card-body">
-                    <?php foreach($users_latest as $user) { ?>
-                        <ul class="row list-unstyled latest">
-                            <li class="col-sm-3">
-                                <a href="profile.php?username=<?php echo $user['username']; ?>">
-                                    <?php echo $user['username'] ?>
-                                </a>
+                    <ul class="list-unstyled latest">
+                        <?php foreach ($users_latest as $user) { ?>
+                            <li>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="profile.php?username=<?php echo $user['username']; ?>">
+                                            <?php echo $user['username'] ?>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <?php echo $user['date_joined'] ?>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="edit.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-success" role="button">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                        <a href="delete.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger confirm-delete" role="button" method="POST">
+                                            <i class="fa fa-close"></i> Delete
+                                        </a>
+                                    </div>
+                                </div>
                             </li>
-                            <li class="col-sm-3">
-                                <?php echo $user['dateJoined'] ?>
-                            </li>
-                            <li class="col-sm-6">
-                                <a href="edit.php?id=<?php echo $user['id']; ?>" class="btn btn-success" role="button">
-                                    <i class="fa fa-edit"></i> Edit
-                                </a>
-                                <a href="delete.php?id=<?php echo $user['id']; ?>" class="btn btn-danger confirm-delete" role="button" method="POST">
-                                    <i class="fa fa-close"></i> Delete
-                                </a>
-                            </li>
-                        </ul>
-                    <?php } ?>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <i class="fa fa-book"></i> Recently Portfolios
+                    <i class="fa fa-clipboard"></i> Recently Added Projects
+                    <span class="toggle-info pull-right">
+                        <i class="fa fa-arrow-up"></i>
+                    </span>
                 </div>
                 <div class="card-body">
-                    Test
+                    <ul class="list-unstyled latest">
+                        <?php foreach ($projects_latest as $project) { ?>
+                            <li>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <a href="project.php?id=<?php echo $project['id']; ?>">
+                                            <?php echo $project['name'] ?>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <?php echo $project['add_date'] ?>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="edit.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-success" role="button">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                        <a href="delete.php?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger confirm-delete" role="button" method="POST">
+                                            <i class="fa fa-close"></i> Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>

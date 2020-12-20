@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aae924b9-d190-4c29-80ca-13fe7bfe92eb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/addCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/addCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/addProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/addProject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/editCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/editCategory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/layout/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/layout/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/projects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +80,10 @@
       <workItem from="1608229944799" duration="363000" />
       <workItem from="1608241150875" duration="6277000" />
       <workItem from="1608297960246" duration="7222000" />
+      <workItem from="1608332619244" duration="4913000" />
+      <workItem from="1608386854395" duration="4179000" />
+      <workItem from="1608418242492" duration="2511000" />
+      <workItem from="1608420799021" duration="7003000" />
     </task>
     <servers />
   </component>

@@ -11,28 +11,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title      = test_input($_POST['title']);
     $desc       = test_input($_POST['desc']);
     $ordering   = (!empty($_POST['ordering'])) ? test_input($_POST['ordering']) : 0;
-    $hidden     = test_input($_POST['hidden']);
+    $visibility     = test_input($_POST['visibility']);
     $comments   = test_input($_POST['comments']);
     $ads        = test_input($_POST['ads']);
-//    $row = selectItems('*', 'categories', "title=$title");
     $sql = $con->prepare("SELECT * FROM categories WHERE title=:title");
     $sql->execute(array('title'=>$title));
     if($sql->rowCount() > 0)
-//    if(empty($row))
         $errors['title'] = "This title is already used";
     if(empty($errors['title'])) {
-        $sql = $con->prepare("INSERT INTO categories (title, description, ordering, hidden, comments, ads)
-                                    VALUE (:title, :desc, :ordering, :hidden, :comments, :ads)");
+        $sql = $con->prepare("INSERT INTO categories (title, description, ordering, visibility, comments, ads)
+                                    VALUE (:title, :desc, :ordering, :visibility, :comments, :ads)");
         $sql->bindParam('title', $title);
         $sql->bindParam('desc', $desc);
         $sql->bindParam('ordering', $ordering);
-        $sql->bindParam('hidden', $hidden);
+        $sql->bindParam('visibility', $visibility);
         $sql->bindParam('comments', $comments);
         $sql->bindParam('ads', $ads);
         $sql->execute();
-//        header('location: categories.php');
         redirect(3, 'back');
-//        exit();
     }
 }
 ?>
@@ -62,12 +58,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label class="form-label">Visibility</label>
                             <div class="form-check">
                                 <span>
-                                    <input checked id="hiddeny" type="radio" name="hidden" value="1">
-                                    <label for="hiddeny">Yes</label>
+                                    <input checked id="visibilityy" type="radio" name="visibility" value="1">
+                                    <label for="visibilityy">Visible</label>
                                 </span>
                                 <span>
-                                    <input id="hiddenn" type="radio" name="hidden" value="0">
-                                    <label for="hiddenn">No</label>
+                                    <input id="visibilityn" type="radio" name="visibility" value="0">
+                                    <label for="visibilityn">Hidden</label>
                                 </span>
                             </div>
                         </div><br>

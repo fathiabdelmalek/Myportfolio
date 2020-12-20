@@ -32,23 +32,33 @@ h1 {
     display: block;
 }
 
+.toggle-info {
+    color: #999;
+}
+
+.toggle-info:hover {
+    color: #444;
+    cursor: pointer;
+}
+
 .latest {
-    background-color: #DDD;
-    border-radius: 5px;
-    margin-top: 4px;
+    /*background-color: #DDD;*/
+    /*border-radius: 5px;*/
+    margin-top: 8px;
     margin-bottom: 0;
 }
 
-.latest:nth-child(even) {
-    background-color: #EEE;
+.latest li {
+    margin-top: 4px;
+    padding: 5px 0;
+}
+
+.latest li:nth-child(odd) {
+    background-color: #DDD;
 }
 
 .latest a {
     text-decoration: none;
-}
-
-.latest li {
-    padding: 5px 0;
 }
 
 .latest .btn {

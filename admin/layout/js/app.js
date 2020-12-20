@@ -10,6 +10,14 @@ $(function () {
         hideEffectSpeed: 400
     });
 
+    $('.toggle-info').click(function() {
+        $(this).toggleClass('hid-info').parent().next('.card-body').fadeToggle(100);
+        if($(this).hasClass('hid-info'))
+            $(this).html('<i class="fa fa-arrow-down"></i>');
+        else
+            $(this).html('<i class="fa fa-arrow-up"></i>');
+    });
+
     $('[placeholder]').focus(function () {
         $(this).attr('hint', $(this).attr('placeholder'));
         $(this).attr('placeholder', '');

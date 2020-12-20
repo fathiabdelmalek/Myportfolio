@@ -1,8 +1,12 @@
 <?php
 session_start();
-$title = 'Projects Manage';
+$title = 'Categories Manage';
 include 'init.php';
-$sort = 'ASC';
+if(!isset($_SESSION['user']))
+    redirect(1);
+$arr = array('ASC', 'DESC');
+$sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
+$rows = selectItems('*', 'projects_view', null, 'id', $sort);
 ?>
 <h1 class="text-center">Projects Manager</h1>
 <div class="container cats">
@@ -21,32 +25,29 @@ $sort = 'ASC';
         </div>
         <div class="card-body">
             <?php if(empty($rows)) { ?>
-                There is no categories
+                There is no projects
             <?php } else { foreach($rows as $row) { ?>
                 <div class="cat">
                     <div class="hidden-btn">
-                        <a class="btn btn-success" href="editCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
-                        <a class="btn btn-danger" href="deleteCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
+                        <a class="btn btn-info" href="editProject.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
+                        <a class="btn btn-danger" href="deleteProject.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
                     </div>
-                    <h3><?php echo $row['title'] ?></h3>
-                    <div class="view">
-                        <p>
-                            <?php
-                            if($row['description'] == '')
-                                echo 'This category has no description';
-                            else
-                                echo $row['description'];
-                            ?>
-                        </p>
-                        <span class="<?php if($row['comments'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                        Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
-                    </span>
-                        <span class="<?php if($row['ads'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                        Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
-                    </span>
-                        <?php if($row['hidden'] == 1) { ?>
-                            <span class="hidden"><i class="fa fa-eye-slash"></i> Hidden</span>
-                        <?php } ?>
+                    <div class="row">
+                        <div class="col-2">
+                            IMAGE
+                        </div>
+                        <div class="col-10">
+                            <h3><?php echo $row['name'] ?></h3>
+                            <div class="view">
+                                <p><?php echo $row['description'] ?></p>
+                                <span class="<?php if($row['visibility'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
+                            <?php if($row['visibility'] == 1) echo 'Public'; else echo 'Private'; ?>
+                        </span>
+                                <span><b>Category:</b> <?php echo $row['category_title'] ?></span> |
+                                <span><b>User:</b> <?php echo $row['username'] ?></span>
+                                <span class="pull-right"><b>Date:</b> <?php echo $row['add_date'] ?></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
