@@ -1,32 +1,28 @@
 <?php
 session_start();
-
 $title = 'Admin Login';
 $nav = '';
 include 'init.php';
-
 if(isset($_SESSION['user']))
     header('location: dashboard.php');
-
 $errors = array(
     'email' => '',
     'pass' => '',
 );
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = test_input($_POST['email']);
     $password = sha1(test_input($_POST['password']));
-    $sql = $con->prepare("SELECT username, email, password FROM users WHERE isadmin='Y'");
-    $result = $sql->execute(array($email, $password));
-    $row = $sql->fetch();
-    if($row['email'] != $email)
-        $errors['email'] = 'This email is not for admin';
-    else if($row['password'] != $password)
-        $errors['pass'] = 'The password is not correct';
-    if(($errors['email'] == '') && ($errors['pass'] == '')) {
-        $_SESSION['user'] = $row['username'];
-        header('location: dashboard.php');
-        exit();
+    $rows = selectRecords('username, email, password', 'users', "isadmin='Y'");
+    foreach($rows as $row) {
+        if($row['email'] != $email)
+            continue;
+        else if($row['password'] != $password)
+            $errors['pass'] = 'The password is not correct';
+        if(($errors['email'] == '') && ($errors['pass'] == '')) {
+            $_SESSION['user'] = $row['username'];
+            header('location: dashboard.php');
+            exit();
+        }
     }
 }
 ?>

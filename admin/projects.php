@@ -6,7 +6,7 @@ if(!isset($_SESSION['user']))
     redirect(1);
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
-$rows = selectItems('*', 'projects_view', null, 'id', $sort);
+$rows = selectRecords('*', 'projects_view', null, 'id', $sort);
 ?>
 <h1 class="text-center">Projects Manager</h1>
 <div class="container cats">
@@ -40,9 +40,14 @@ $rows = selectItems('*', 'projects_view', null, 'id', $sort);
                             <h3><?php echo $row['name'] ?></h3>
                             <div class="view">
                                 <p><?php echo $row['description'] ?></p>
+                                <span>
+                                    <a href="project.php?name=<?php echo $row['name'] ?>">
+                                        goto
+                                    </a>
+                                </span>
                                 <span class="<?php if($row['visibility'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                            <?php if($row['visibility'] == 1) echo 'Public'; else echo 'Private'; ?>
-                        </span>
+                                    <?php if($row['visibility'] == 1) echo 'Public'; else echo 'Private'; ?>
+                                </span>
                                 <span><b>Category:</b> <?php echo $row['category_title'] ?></span> |
                                 <span><b>User:</b> <?php echo $row['username'] ?></span>
                                 <span class="pull-right"><b>Date:</b> <?php echo $row['add_date'] ?></span>

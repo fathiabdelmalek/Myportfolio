@@ -24,7 +24,7 @@
                             <?php echo $_SESSION['user'] ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="profile.php?id=1">Profile</a></li>
+                                <li><a class="dropdown-item" href="profile.php?username=<?php echo $_SESSION['user'] ?>">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>

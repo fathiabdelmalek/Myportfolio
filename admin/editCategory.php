@@ -15,7 +15,6 @@ $row = $sql->fetch();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title          = test_input($_POST['title']);
     $description    = test_input($_POST['description']);
-    $ordering       = test_input($_POST['ordering']);
     $visibility         = test_input($_POST['visibility']);
     $comments       = test_input($_POST['comments']);
     $ads            = test_input($_POST['ads']);
@@ -25,12 +24,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['title'] = "This name is already used";
     if(empty($errors['title'])) {
         $sql = $con->prepare("UPDATE categories
-                                    SET title=:title, description=:description, ordering=:ordering, 
+                                    SET title=:title, description=:description, 
                                         visibility=:visibility, comments=:comments, ads=:ads
                                     WHERE id=:id");
         $sql->bindParam('title', $title);
         $sql->bindParam('description', $description);
-        $sql->bindParam('ordering', $ordering);
         $sql->bindParam('visibility', $visibility);
         $sql->bindParam('comments', $comments);
         $sql->bindParam('ads', $ads);
@@ -60,10 +58,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group">
                             <label class="form-label">Description</label>
                             <textarea class="form-control" name="description"><?php echo $row['description'] ?></textarea>
-                        </div><br>
-                        <div class="form-group">
-                            <label class="form-label">Ordering</label>
-                            <input class="form-control" type="number" name="ordering" value="<?php echo $row['ordering'] ?>">
                         </div><br>
                         <div class="form-group">
                             <label class="form-label">Visibility</label>

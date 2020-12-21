@@ -26,7 +26,7 @@ function redirect($seconds = 3, $url = null) {
     exit();
 }
 
-function selectItems($select, $table, $value = null, $ordering = null, $sorting = null) {
+function selectRecords($select, $table, $value = null, $ordering = null, $sorting = null) {
     global $con;
     $stmt = "SELECT $select FROM $table";
     if(!empty($value))

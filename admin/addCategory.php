@@ -10,7 +10,6 @@ $errors = array(
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title      = test_input($_POST['title']);
     $desc       = test_input($_POST['desc']);
-    $ordering   = (!empty($_POST['ordering'])) ? test_input($_POST['ordering']) : 0;
     $visibility     = test_input($_POST['visibility']);
     $comments   = test_input($_POST['comments']);
     $ads        = test_input($_POST['ads']);
@@ -19,11 +18,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($sql->rowCount() > 0)
         $errors['title'] = "This title is already used";
     if(empty($errors['title'])) {
-        $sql = $con->prepare("INSERT INTO categories (title, description, ordering, visibility, comments, ads)
-                                    VALUE (:title, :desc, :ordering, :visibility, :comments, :ads)");
+        $sql = $con->prepare("INSERT INTO categories (title, description, visibility, comments, ads)
+                                    VALUE (:title, :desc, :visibility, :comments, :ads)");
         $sql->bindParam('title', $title);
         $sql->bindParam('desc', $desc);
-        $sql->bindParam('ordering', $ordering);
         $sql->bindParam('visibility', $visibility);
         $sql->bindParam('comments', $comments);
         $sql->bindParam('ads', $ads);
@@ -49,10 +47,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group">
                             <label class="form-label">Description</label>
                             <textarea class="form-control" name="desc" placeholder="Description"></textarea>
-                        </div><br>
-                        <div class="form-group">
-                            <label class="form-label">Ordering</label>
-                            <input class="form-control" type="number" name="ordering" placeholder="The ordering">
                         </div><br>
                         <div class="form-group">
                             <label class="form-label">Visibility</label>

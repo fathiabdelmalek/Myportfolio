@@ -4,7 +4,7 @@ $title = 'Users Manage';
 include 'init.php';
 if(!isset($_SESSION['user']))
     redirect(1);
-$rows = selectItems('*', 'users', 'id!=1');
+$rows = selectRecords('*', 'users', 'id!=1');
 ?>
 <h1 class="text-center">Users Management</h1>
 <div class="container">

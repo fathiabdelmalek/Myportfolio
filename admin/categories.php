@@ -6,7 +6,7 @@ if(!isset($_SESSION['user']))
     redirect(1);
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
-$rows = selectItems('*', 'categories', null, 'ordering', $sort);
+$rows = selectRecords('*', 'categories', null, 'id', $sort);
 ?>
 <h1 class="text-center">Categories Management</h1>
 <div class="container cats">
@@ -35,12 +35,7 @@ $rows = selectItems('*', 'categories', null, 'ordering', $sort);
                     <h3><?php echo $row['title'] ?></h3>
                     <div class="view">
                         <p>
-                            <?php
-                            if($row['description'] == '')
-                                echo 'This category has no description';
-                            else
-                                echo $row['description'];
-                            ?>
+                            <?php echo $row['description'] ?>
                         </p>
                         <span class="<?php if($row['comments'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
                             Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>

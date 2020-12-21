@@ -46,8 +46,10 @@
     </div>
   </div>
 </footer>
-<script src="<?php echo $js . 'jquery.min.js' ?>"></script>
 <script src="<?php echo $js . 'bootstrap.min.js' ?>"></script>
+<script src="<?php echo $js . 'jquery.js' ?>"></script>
+<script src="<?php echo $js . 'jquery-ui.min.js' ?>"></script>
+<script src="<?php echo $js . 'jquery.selectBoxIt.min.js' ?>"></script>
 <script src="<?php echo $js . 'app.js' ?>" type="text/javascript"></script>
 </body>
 </html>

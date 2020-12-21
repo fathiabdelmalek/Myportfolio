@@ -1,7 +1,7 @@
-DROP DATABASE if EXISTS myportfolio;
-CREATE DATABASE myportfolio;
-USE myportfolio;
-CREATE TABLE users(
+DROP DATABASE if EXISTS `myportfolio`;
+CREATE DATABASE `myportfolio`;
+USE `myportfolio`;
+CREATE TABLE `users`(
 	`id`       		INT          	NOT NULL AUTO_INCREMENT,
 	`username` 		VARCHAR(50)  	NOT NULL UNIQUE,
 	`email`    		VARCHAR(100) 	NOT NULL UNIQUE,
@@ -9,45 +9,71 @@ CREATE TABLE users(
 	`fullname` 		VARCHAR(50),
     `join_date` 	DATE			NOT NULL DEFAULT(now()),
 	`isadmin`  		ENUM('Y','N')	NOT NULL DEFAULT('N'),
-	CONSTRAINT `id` PRIMARY KEY (`id`)
+	CONSTRAINT `user_id` PRIMARY KEY (`id`)
 );
 INSERT INTO users (`username`, `email`, `password`, `isadmin`)
-VALUE ('FathiMalek', 'abdelmalek.fathi.2001@gmail.com', SHA1('123'), 'Y');
+VALUE ('FathiMalek', 'fathi@gmail.com', sha1('123'), 'Y');
+INSERT INTO users (`username`, `email`, `password`, `isadmin`)
+VALUE ('Choukry', 'choukry@gmail.com', sha1('123'), 'Y');
 INSERT INTO users (`username`, `email`, `password`)
 VALUE ('Youma', 'youma@gmail.com', SHA1('123'));
 INSERT INTO users (`username`, `email`, `password`)
 VALUE ('Chihab', 'chihab@gmail.com', SHA1('123'));
 
-CREATE TABLE categories(
+CREATE TABLE `categories`(
 	`id` 			TINYINT 	 	NOT NULL AUTO_INCREMENT,
 	`title` 		VARCHAR(50)  	NOT NULL UNIQUE,
-	`description` 	VARCHAR(400),
-	`ordering`		INT,
+	`description` 	VARCHAR(400)	NOT NULL DEFAULT("There is no description for this category"),
 	`visibility`  	BOOLEAN			NOT NULL DEFAULT(1),
 	`comments`		BOOLEAN			NOT NULL DEFAULT(1),
 	`ads`			BOOLEAN			NOT NULL DEFAULT(1),
-	CONSTRAINT `id` PRIMARY KEY (`id`)
+	CONSTRAINT `category_id` PRIMARY KEY (`id`)
 );
+INSERT INTO `categories` (`title`, `description`)
+VALUES ('Web Dev', 'web development with any language (php, java, c#, python, js...)');
+INSERT INTO `categories` (`title`)
+VALUES ('Game Dev');
+INSERT INTO `categories` (`title`)
+VALUES ('Desktop Apps Dev');
 
 CREATE TABLE `projects`(
 	`id` 			INT 		NOT NULL AUTO_INCREMENT,
 	`name` 			VARCHAR(50) NOT NULL,
 	`description` 	TEXT 		NOT NULL,
-	`add_date` 		DATE 		NOT NULL DEFAULT(now()),
 	`media` 		VARCHAR(20),
+	`add_date` 		DATE 		NOT NULL DEFAULT(now()),
     `rating`		TINYINT		NOT NULL DEFAULT(0),
     `visibility`	BOOLEAN		NOT NULL DEFAULT(0),
-	`userID` 		INT,
-	`categoryID`	TINYINT,
-	CONSTRAINT `id` PRIMARY KEY (`id`),
-	CONSTRAINT `user_id` 		FOREIGN KEY (`userID`) 		REFERENCES `users`(`id`)
+	`category_id`	TINYINT,
+	`user_id` 		INT,
+	CONSTRAINT `project_id` 			PRIMARY KEY (`id`),
+    CONSTRAINT `project_category_id` 	FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`)
     ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT `category_id` 	FOREIGN KEY (`categoryID`) 	REFERENCES `categories`(`id`)
+	CONSTRAINT `project_user_id` 		FOREIGN KEY (`user_id`) 	REFERENCES `users`(`id`)
+    ON UPDATE CASCADE ON DELETE CASCADE
+);
+INSERT INTO `projects` (`name`, `description`, `category_id`, `user_id`)
+VALUES ('Flying Rocket', 'a game was created with unity game engine', 1, 2);
+
+CREATE OR REPLACE VIEW `projects_view` AS 
+SELECT `projects`.*, `categories`.`title` AS `category_title`, `users`.`username` FROM `projects`
+INNER JOIN `categories` ON `categories`.`id` = `projects`.`category_id`
+INNER JOIN `users` ON `users`.`id` = `projects`.`user_id`;
+
+CREATE TABLE `comments`(
+	`id` 			INT 			NOT NULL AUTO_INCREMENT,
+    `comment` 		VARCHAR(500) 	NOT NULL,
+    `add_date` 		DATE 			NOT NULL DEFAULT(now()),
+    `project_id` 	INT 			NOT NULL,
+    `user_id` 		INT 			NOT NULL,
+    CONSTRAINT `comment_id` 		PRIMARY KEY (`id`),
+    CONSTRAINT `comment_project_id` FOREIGN KEY (`project_id`) 	REFERENCES `projects`(`id`)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `comment_user_id` 	FOREIGN KEY (`user_id`) 	REFERENCES `users`(`id`)
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE OR REPLACE VIEW `projects_view` AS 
-SELECT projects.*, users.username, categories.title AS category_title FROM projects 
-INNER JOIN users ON users.id = projects.userID 
-INNER JOIN categories ON categories.id = projects.categoryID;
-SELECT * FROM projects_view;
+CREATE OR REPLACE VIEW `comments_view` AS
+SELECT `comments`.*, `projects`.`name` AS `projectname`, `users`.`username` FROM `comments`
+INNER JOIN `projects` ON `projects`.`id` = `comments`.`project_id`
+INNER JOIN `users` ON `users`.`id` = `comments`.`user_id`;

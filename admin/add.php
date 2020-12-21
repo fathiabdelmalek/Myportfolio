@@ -35,8 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($password2 != $password1)
         $errors['pass2'] = "Must be the same as Password";
     if(empty($errors['name']) && empty($errors['email']) && empty($errors['pass1']) && empty($errors['pass2'])) {
-        $sql = $con->prepare("INSERT INTO users (username, email, password, join_date)
-                                    VALUE (:username, :email, :password, now())");
+        $sql = $con->prepare("INSERT INTO users (username, email, password)
+                                    VALUE (:username, :email, :password)");
         $sql->bindParam('username', $username);
         $sql->bindParam('email', $email);
         $sql->bindParam('password', $sha1);

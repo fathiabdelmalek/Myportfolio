@@ -23,8 +23,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($user))
         $errors['user'] = 'User can\'t be empty';
     if(empty($errors['name']) && empty($errors['description']) && empty($errors['category']) && empty($errors['user'])) {
-        $sql = $con->prepare("INSERT INTO `projects` (`name`, `description`, `add_date`, `visibility`, `userID`, `categoryID`)
-                                    VALUES (:name, :description, now(), :visibility, :user, :category)");
+        $sql = $con->prepare("INSERT INTO `projects` (`name`, `description`, `visibility`, `userID`, `categoryID`)
+                                    VALUES (:name, :description, :visibility, :user, :category)");
         $sql->bindParam('name', $name);
         $sql->bindParam('description', $description);
         $sql->bindParam('visibility', $visibility);
