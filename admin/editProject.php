@@ -2,14 +2,14 @@
 session_start();
 $title = 'Edit Project';
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $errors = array(
     'name'          => '',
     'description'   => '',
     'category'      => '',
     'user'          => ''
 );
-if(!isset($_SESSION['user']))
-    redirect(1);
 $id = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
 $sql = $con->prepare("SELECT * FROM projects_view WHERE id=:id");
 $sql->bindParam('id', $id);
@@ -32,18 +32,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($user))
         $errors['user'] = 'User can\'t be empty';
     if(empty($errors['name']) && empty($errors['description']) && empty($errors['category']) && empty($errors['user'])) {
-        $sql = $con->prepare("UPDATE projects
-                                    SET name=:name, description=:description, visibility=:visibility, userID=:user, categoryID=:category
-                                    WHERE id=:id");
-        $sql->bindParam('name', $name);
-        $sql->bindParam('description', $description);
-        $sql->bindParam('visibility', $visibility);
-        $sql->bindParam('user', $user);
-        $sql->bindParam('category', $category);
-        $sql->bindParam('id', $id);
-        $sql->execute();
-        header("location:editProject.php?id=$id");
-        exit();
+        updateRecord('projects',
+            ['name', 'description', 'visibility', 'user_id', 'category_id'],
+            [$name, $description, $visibility, $user, $category],
+            "id=$id");
+        redirect("editProject.php?id=$id");
     }
 }
 ?>

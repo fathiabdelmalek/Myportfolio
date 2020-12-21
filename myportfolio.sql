@@ -12,13 +12,12 @@ CREATE TABLE `users`(
 	CONSTRAINT `user_id` PRIMARY KEY (`id`)
 );
 INSERT INTO users (`username`, `email`, `password`, `isadmin`)
-VALUE ('FathiMalek', 'fathi@gmail.com', sha1('123'), 'Y');
-INSERT INTO users (`username`, `email`, `password`, `isadmin`)
-VALUE ('Choukry', 'choukry@gmail.com', sha1('123'), 'Y');
+VALUES 	('Fathi Admin', 'fathi@gmail.com', sha1('123'), 'Y'),
+		('Choukry Admin', 'choukry@gmail.com', sha1('123'), 'Y');
 INSERT INTO users (`username`, `email`, `password`)
-VALUE ('Youma', 'youma@gmail.com', SHA1('123'));
-INSERT INTO users (`username`, `email`, `password`)
-VALUE ('Chihab', 'chihab@gmail.com', SHA1('123'));
+VALUES	('Fathi', 'abdelmalek.fathi.2001@gmail.com', sha1('Fathi_CJPP@2001')),
+		('Youma', 'youma@gmail.com', sha1('123')),
+		('Chihab', 'chihab@gmail.com', sha1('123'));
 
 CREATE TABLE `categories`(
 	`id` 			TINYINT 	 	NOT NULL AUTO_INCREMENT,
@@ -30,11 +29,11 @@ CREATE TABLE `categories`(
 	CONSTRAINT `category_id` PRIMARY KEY (`id`)
 );
 INSERT INTO `categories` (`title`, `description`)
-VALUES ('Web Dev', 'web development with any language (php, java, c#, python, js...)');
+VALUES 	('Web Dev', 'web development with any language (php, java, c#, python, js...)');
 INSERT INTO `categories` (`title`)
-VALUES ('Game Dev');
-INSERT INTO `categories` (`title`)
-VALUES ('Desktop Apps Dev');
+VALUES 	('Game Dev'),
+		('Desktop Apps Dev'),
+        ('Design');
 
 CREATE TABLE `projects`(
 	`id` 			INT 		NOT NULL AUTO_INCREMENT,

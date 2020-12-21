@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = 'Edit page';
 include 'init.php';
 $errors = array(
@@ -7,8 +9,6 @@ $errors = array(
     'email' => '',
     'pass' => ''
 );
-if(!isset($_SESSION['user']))
-    redirect(1);
 $id = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
 $sql = $con->prepare("SELECT * FROM users WHERE id=:id");
 $sql->bindParam('id', $id);
@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email      = test_input($_POST['email']);
     $oldpass    = $row['password'];
     $password   = test_input($_POST['password']);
-    $sha1 = sha1($password);
+    $sha1 = (!empty($_POST['password'])) ? sha1($password) : $oldpass;
     $passPattern = '/^(?=.*[!@#$%^&*-])(?=.*[0-9])(?=.*[A-Z]).{8,}$/';
     if(!preg_match("/^[a-zA-Z0-9_']*$/", $username))
         $errors['name'] = "Only letters and numbers and underscore";
@@ -37,19 +37,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(!preg_match($passPattern, $password))
         $errors['pass1'] = "Weak Password";
     if(empty($errors['name']) && empty($errors['email']) && empty($errors['pass'])) {
-        $sql = $con->prepare("UPDATE users
-                                    SET username=:username, email=:email, password=:password
-                                    WHERE id=:id");
-        $sql->bindParam('username', $username);
-        $sql->bindParam('email', $email);
-        if(empty($_POST['password']))
-            $sql->bindParam('password', $oldpass);
-        else
-            $sql->bindParam('password', $sha1);
-        $sql->bindParam('id', $id);
-        $sql->execute();
-        header("location:edit.php?id=$id");
-        exit();
+        updateRecord('users',
+                    ['username', 'email', 'password'],
+                    [$username, $email, $sha1],
+            "id=$id");
+        redirect("edit.php?id=$id");
     }
 }
 ?>

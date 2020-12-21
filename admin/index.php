@@ -1,10 +1,10 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect('dashboard.php');
 $title = 'Admin Login';
 $nav = '';
 include 'init.php';
-if(isset($_SESSION['user']))
-    header('location: dashboard.php');
 $errors = array(
     'email' => '',
     'pass' => '',
@@ -20,8 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['pass'] = 'The password is not correct';
         if(($errors['email'] == '') && ($errors['pass'] == '')) {
             $_SESSION['user'] = $row['username'];
-            header('location: dashboard.php');
-            exit();
+            redirect('dashboard.php');
         }
     }
 }
@@ -45,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 							<input required class="form-control" type="password" name="password" placeholder="Password">
 							<span class="alert-sm alert-danger"><?php echo $errors['pass']; ?></span>
 						</div><br>
-						<button class="btn btn-primary" type="submit">Submit</button>
+						<button class="container-fluid btn btn-primary" type="submit">Submit</button>
 					</form>
 				</div>
 			</div>

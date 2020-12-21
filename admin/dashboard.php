@@ -1,10 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = 'Dashboard';
 include 'init.php';
-
-if (!isset($_SESSION['user']))
-    header('location: index.php');
 $users      = countItems('id', 'users');
 $categories = countItems('id', 'categories');
 $projects   = countItems('id', 'projects');
@@ -29,13 +28,13 @@ $projects_latest    = getLatest('id, name, add_date, username, category_title', 
         </div>
         <div class="col-md-3">
             <div class="stats">
-                Total Portfolios
+                Total Projects
                 <span><?php echo $projects ?></span>
             </div>
         </div>
         <div class="col-md-3">
             <div class="stats">
-                Total Communts
+                Total Comments
                 <span><?php echo $comments ?></span>
             </div>
         </div>

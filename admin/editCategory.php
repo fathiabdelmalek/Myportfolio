@@ -1,12 +1,12 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = 'Edit Category';
 include 'init.php';
 $errors = array(
     'title' => '',
 );
-if(!isset($_SESSION['user']))
-    redirect(1);
 $id = isset($_GET['id']) && is_numeric($_GET['id']) ? intval($_GET['id']) : 0;
 $sql = $con->prepare("SELECT * FROM categories WHERE id=:id");
 $sql->bindParam('id', $id);
@@ -23,19 +23,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($sql->rowCount() > 1)
         $errors['title'] = "This name is already used";
     if(empty($errors['title'])) {
-        $sql = $con->prepare("UPDATE categories
-                                    SET title=:title, description=:description, 
-                                        visibility=:visibility, comments=:comments, ads=:ads
-                                    WHERE id=:id");
-        $sql->bindParam('title', $title);
-        $sql->bindParam('description', $description);
-        $sql->bindParam('visibility', $visibility);
-        $sql->bindParam('comments', $comments);
-        $sql->bindParam('ads', $ads);
-        $sql->bindParam('id', $id);
-        $sql->execute();
-        header("location:editCategory.php?id=$id");
-        exit();
+        updateRecord('categories',
+            ['title', 'description', 'visibility', 'comments', 'ads'],
+            [$title, $description, $visibility, $comments, $ads],
+            "id=$id");
+        redirect("editCategory.php?id=$id");
     }
 }
 ?>

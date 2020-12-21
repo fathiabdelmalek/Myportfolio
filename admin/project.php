@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = isset($_GET['name']) ? $_GET['name'] . ' Project' : header('location: index.php');
 include 'init.php';
 $name = $_GET['name'];

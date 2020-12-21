@@ -1,9 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = 'Add new User';
 include 'init.php';
-if(!isset($_SESSION['user']))
-    redirect(1);
 $errors = array(
     'title'  => '',
 );
@@ -18,15 +18,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($sql->rowCount() > 0)
         $errors['title'] = "This title is already used";
     if(empty($errors['title'])) {
-        $sql = $con->prepare("INSERT INTO categories (title, description, visibility, comments, ads)
-                                    VALUE (:title, :desc, :visibility, :comments, :ads)");
-        $sql->bindParam('title', $title);
-        $sql->bindParam('desc', $desc);
-        $sql->bindParam('visibility', $visibility);
-        $sql->bindParam('comments', $comments);
-        $sql->bindParam('ads', $ads);
-        $sql->execute();
-        redirect(3, 'back');
+        insertRecored('categories',
+                    'title, description, visibility, comments, ads',
+                "'$title', '$desc', '$visibility', '$comments', '$ads'");
+        redirect('categories.php');
     }
 }
 ?>
@@ -87,7 +82,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </span>
                             </div>
                         </div><br>
-                        <button class="btn btn-primary" type="submit">Add new category</button>
+                        <button class="container-fluid btn btn-primary" type="submit">Add</button>
                     </form>
                 </div>
             </div>

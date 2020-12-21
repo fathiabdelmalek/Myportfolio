@@ -1,9 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = 'Add new User';
 include 'init.php';
-if(!isset($_SESSION['user']))
-    redirect(1);
 $errors = array(
     'name'  => '',
     'email' => '',
@@ -35,14 +35,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($password2 != $password1)
         $errors['pass2'] = "Must be the same as Password";
     if(empty($errors['name']) && empty($errors['email']) && empty($errors['pass1']) && empty($errors['pass2'])) {
-        $sql = $con->prepare("INSERT INTO users (username, email, password)
-                                    VALUE (:username, :email, :password)");
-        $sql->bindParam('username', $username);
-        $sql->bindParam('email', $email);
-        $sql->bindParam('password', $sha1);
-        $sql->execute();
-        header('location: users.php');
-        exit();
+        insertRecored('users', 'username, email, password', "'$username', '$email', '$sha1'");
+        redirect('users.php');
     }
 }
 ?>
@@ -75,7 +69,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input required class="form-control" type="password" name="password2" placeholder="Password">
                             <span class="alert-sm alert-danger"><?php echo $errors['pass2']; ?></span>
                         </div><br>
-                        <button class="btn btn-primary" type="submit">Add new user</button>
+                        <button class="container-fluid btn btn-primary" type="submit">Add</button>
                     </form>
                 </div>
             </div>

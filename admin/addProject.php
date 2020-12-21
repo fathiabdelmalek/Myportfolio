@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+    redirect();
 $title = 'Add new project';
 include 'init.php';
 $errors = array(
@@ -23,15 +25,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($user))
         $errors['user'] = 'User can\'t be empty';
     if(empty($errors['name']) && empty($errors['description']) && empty($errors['category']) && empty($errors['user'])) {
-        $sql = $con->prepare("INSERT INTO `projects` (`name`, `description`, `visibility`, `userID`, `categoryID`)
-                                    VALUES (:name, :description, :visibility, :user, :category)");
-        $sql->bindParam('name', $name);
-        $sql->bindParam('description', $description);
-        $sql->bindParam('visibility', $visibility);
-        $sql->bindParam('user', $user);
-        $sql->bindParam('category', $category);
-        $sql->execute();
-        redirect(0, 'projects.php');
+        insertRecored('projects',
+                    'name, description, visibility, user_id, category_id',
+                    "'$name', '$description', '$visibility', '$user', '$category'");
+        redirect('projects.php');
     }
 }
 ?>
@@ -95,7 +92,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 </span>
                             </div>
                         </div><br>
-                        <button class="btn btn-primary" type="submit">Add new project</button>
+                        <button class="container-fluid btn btn-primary" type="submit">Add</button>
                     </form>
                 </div>
             </div>
