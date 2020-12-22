@@ -13,16 +13,15 @@
       <change beforePath="$PROJECT_DIR$/admin/deleteProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deleteProject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/editCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/editCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/editProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/editProject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/functions/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/projects.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myportfolio.sql" beforeDir="false" afterPath="$PROJECT_DIR$/myportfolio.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/templates/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
       <workItem from="1608420799021" duration="7003000" />
       <workItem from="1608465520325" duration="7011000" />
       <workItem from="1608500887231" duration="5432000" />
-      <workItem from="1608537446528" duration="10653000" />
+      <workItem from="1608537446528" duration="16629000" />
     </task>
     <servers />
   </component>

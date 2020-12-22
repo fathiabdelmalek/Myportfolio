@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="dashboard.php">Dashboard</a>
+        <a class="navbar-brand" href="dashboard.php">My Portfolio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -12,25 +12,26 @@
                 <li class="nav-item">
                     <a class="nav-link" href="projects.php">Projects</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="users.php">Users</a>
-                </li>
             </ul>
             <span class="navbar-text">
-                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo $_SESSION['user'] ?>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="profile.php?username=<?php echo $_SESSION['user'] ?>">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <?php if (isset($_SESSION['user'])) { ?>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <?php echo $_SESSION['user'] ?>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="profile.php?username=<?php echo $_SESSION['user'] ?>">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                <?php } else { ?>
+                    <a href="login.php">Log In</a> | <a href="signup.php">Sign Up</a>
+                <?php } ?>
             </span>
         </div>
     </div>

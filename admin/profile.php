@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect();
 $title = isset($_GET['username']) ? $_GET['username'] : header('location: index.php');
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $username = $_GET['username'];
 $sql = $con->prepare("SELECT * FROM users WHERE username=:username");
 $sql->bindParam('username', $username);

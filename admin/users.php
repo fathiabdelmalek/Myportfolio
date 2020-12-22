@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect();
 $title = 'Users Manage';
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
 $rows = selectRecords('*', 'users', 'id!=1', 'id', $sort);

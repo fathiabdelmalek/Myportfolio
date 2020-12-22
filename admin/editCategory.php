@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect();
 $title = 'Edit Category';
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $errors = array(
     'title' => '',
 );

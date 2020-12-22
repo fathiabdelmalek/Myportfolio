@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect();
 $title = isset($_GET['name']) ? $_GET['name'] . ' Project' : header('location: index.php');
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $name = $_GET['name'];
 $sql = $con->prepare("SELECT * FROM projects_view WHERE name=:name");
 $sql->bindParam('name', $name);

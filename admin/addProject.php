@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect();
 $title = 'Add new project';
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $errors = array(
     'name'          => '',
     'description'   => '',

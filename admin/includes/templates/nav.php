@@ -21,11 +21,12 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo $_SESSION['user'] ?>
+                                <?php echo $_SESSION['user'] ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item" href="profile.php?username=<?php echo $_SESSION['user'] ?>">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="../index.php">Visit site</a></li>
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </li>

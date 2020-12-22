@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect();
 $title = 'Dashboard';
 include 'init.php';
+if(!isset($_SESSION['user']))
+    redirect();
 $users      = countItems('id', 'users');
 $categories = countItems('id', 'categories');
 $projects   = countItems('id', 'projects');

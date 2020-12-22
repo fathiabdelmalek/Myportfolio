@@ -1,10 +1,15 @@
 <?php
 session_start();
-if(!isset($_SESSION['user']))
-    redirect('dashboard.php');
 $title = 'Admin Login';
 $nav = '';
 include 'init.php';
+if(isset($_SESSION['user'])) {
+    $row = selectRecords('username, isadmin', 'users');
+    if($row['isadmin'] == 'Y')
+        redirect('dashboard.php');
+    else
+        redirect('../index.php');
+}
 $errors = array(
     'email' => '',
     'pass' => '',
@@ -35,12 +40,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<div class="card-body">
 					<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
 						<div class="form-group">
-							<label>Email address</label>
+							<label class="form-label">Email address</label>
 							<input required class="form-control" type="email" name="email" placeholder="Email">
 							<span class="alert-sm alert-danger"><?php echo $errors['email']; ?></span>
 						</div><br>
 						<div class="form-group">
-							<label>Password</label>
+							<label class="form-label">Password</label>
 							<input required class="form-control" type="password" name="password" placeholder="Password">
 							<span class="alert-sm alert-danger"><?php echo $errors['pass']; ?></span>
 						</div><br>
