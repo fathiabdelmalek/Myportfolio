@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['pass'] = 'The password is not correct';
         if(($errors['email'] == '') && ($errors['pass'] == '')) {
             $_SESSION['user'] = $row['username'];
-            redirect('dashboard.php');
+            redirect();
         }
     }
 }

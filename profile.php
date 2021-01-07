@@ -1,20 +1,31 @@
 <?php
 session_start();
-$title = 'Categories Management';
+$title = isset($_GET['username']) ? $_GET['username'] : $_SESSION['user'];
 include 'init.php';
-if(!isset($_SESSION['admin']))
-    redirect();
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
-$rows = selectRecords('*', 'projects_view', null, 'id', $sort);
+$sql = $con->prepare("SELECT * FROM users WHERE username=:username");
+$sql->bindParam('username', $title);
+$sql->execute();
+$row = $sql->fetch();
+$id = $row['id'];
+$projects = selectRecords("*", "projects_view", "user_id=$id");
 ?>
-<h1 class="text-center">Projects Management</h1>
-<div class="container cats">
-    <?php if (isset($_GET['message'])) echo '<div class="alert alert-warning">' . $_GET['message'] . '</div>'; ?>
-    <a href="addProject.php" class="btn btn-primary"><i class="fa fa-plus"></i> New Project</a><br><br>
+<h1 class="text-center">Profile Page</h1>
+<div class="container">
     <div class="card">
         <div class="card-header">
-            Projects
+            <h2>User Informations</h2>
+        </div>
+        <div class="card-body">
+            Username: <?php echo $row['username'] ?><br>
+            Email: <?php echo $row['email'] ?><br>
+            Full name: <?php echo $row['full_name'] ?><br>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-header">
+            User Projects
             <div class="options pull-right">
                 <i class="fa fa-sort"></i> Ordering: [
                 <a <?php if($sort == 'ASC') { echo 'class="active"'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=ASC"><i class="fa fa-sort-alpha-asc"></i></a> |
@@ -25,9 +36,9 @@ $rows = selectRecords('*', 'projects_view', null, 'id', $sort);
             </div>
         </div>
         <div class="card-body">
-            <?php if(empty($rows)) { ?>
+            <?php if(empty($projects)) { ?>
                 There is no projects
-            <?php } else foreach($rows as $row) { ?>
+            <?php } else foreach($projects as $project) { ?>
                 <div class="cat">
                     <div class="card">
                         <div class="card-header">
@@ -39,25 +50,32 @@ $rows = selectRecords('*', 'projects_view', null, 'id', $sort);
                                 <a class="btn btn-sm btn-danger confirm-delete" href="deleteProject.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
                             </div>
                             <img class="pull-left" src="icon.png" alt="user image" width="35" height="35">
-                            <a href="project.php?name=<?php echo $row['name'] ?>">
-                                <h3><?php echo $row['name'] ?></h3>
+                            <a href="project.php?name=<?php echo $project['name'] ?>">
+                                <h3><?php echo $project['name'] ?></h3>
                             </a>
-                            <span class="pull-right"><b>Add Date:</b> <?php echo $row['add_date'] ?></span>
+                            <span class="pull-right"><b>Add Date:</b> <?php echo $project['add_date'] ?></span>
                         </div>
                         <div class="card-body">
                             <div class="view p-3 pb-2">
-                                <p><?php echo $row['description'] ?></p>
-                                <span class="<?php if($row['visibility'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                                    <?php if($row['visibility'] == 1) echo 'Public'; else echo 'Private'; ?>
+                                <p><?php echo $project['description'] ?></p>
+                                <span class="<?php if($project['visibility'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
+                                    <?php if($project['visibility'] == 1) echo 'Public'; else echo 'Private'; ?>
                                 </span>
-                                <span><b>Category:</b> <?php echo $row['category_title'] ?></span> |
-                                <span><b>User:</b> <?php echo $row['username'] ?></span>
+                                <span><b>Category:</b> <?php echo $project['category_title'] ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <hr>
             <?php } ?>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>User Comments</h2>
+        </div>
+        <div class="card-body">
+            <?php echo 'comments' ?>
         </div>
     </div>
 </div>

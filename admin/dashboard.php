@@ -2,7 +2,7 @@
 session_start();
 $title = 'Dashboard';
 include 'init.php';
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect();
 $users      = countItems('id', 'users');
 $categories = countItems('id', 'categories');

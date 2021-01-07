@@ -1,5 +1,15 @@
 <?php
 
+function splite_array ($arr) {
+    $set = '';
+    foreach ($arr as $col) {
+        $set .= "$col=?";
+        if ($col != end($arr))
+            $set .= ', ';
+    }
+    return $set;
+}
+
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -15,14 +25,14 @@ function setTitle() {
         echo 'Myportfolio';
 }
 
-function redirect($seconds = 3, $url = null) {
+function redirect($url = null) {
     if($url === null) {
         $url = 'index.php';
     }
     else if($url === 'back') {
         $url = (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== '') ? $_SERVER['HTTP_REFERER'] : 'index.php';
     }
-    header("refresh:$seconds;url=$url");
+    header("location:$url");
     exit();
 }
 
@@ -40,11 +50,24 @@ function selectRecords($select, $table, $value = null, $ordering = null, $sortin
     return $sql->fetchAll();
 }
 
-function deleteRecord($table, $select, $value) {
+function insertRecored ($table, $cols, $values) {
     global $con;
-    $sql = $con->prepare("DELETE FROM $table WHERE $select=:value");
-    $sql->bindParam('value', $value);
+    $sql = $con->prepare("INSERT INTO $table ($cols) VALUES ($values)");
     $sql->execute();
+}
+
+function updateRecord ($table, $cols, $values, $condition) {
+    global $con;
+    $set = splite_array($cols);
+    $sql = $con->prepare("UPDATE $table SET $set WHERE $condition");
+    $sql->execute($values);
+}
+
+function deleteRecord($table, $selects, $values) {
+    global $con;
+    $cols = splite_array($selects);
+    $sql = $con->prepare("DELETE FROM $table WHERE $cols");
+    $sql->execute($values);
 }
 
 function countItems($col, $table) {

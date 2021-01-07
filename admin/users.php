@@ -1,8 +1,8 @@
 <?php
 session_start();
-$title = 'Users Manage';
+$title = 'Users Management';
 include 'init.php';
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect();
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
@@ -60,17 +60,22 @@ $rows = selectRecords('*', 'users', 'id!=1', 'id', $sort);
                 There is no users
             <?php } else { foreach($rows as $row) { ?>
                 <div class="cat">
-                    <div class="hidden-btn">
-                        <a class="btn btn-sm btn-info" href="edit.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
-                        <a class="btn btn-sm btn-danger confirm-delete" href="delete.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            IMAGE
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="toggle-info pull-right">
+                                <i class="fa fa-arrow-up"></i>
+                            </span>
+                            <div class="hidden-btn">
+                                <a class="btn btn-sm btn-info" href="edit.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
+                                <a class="btn btn-sm btn-danger confirm-delete" href="delete.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
+                            </div>
+                            <img class="pull-left" src="icon.png" alt="user image" width="35" height="35">
+                            <a class="title" href="profile.php?username=<?php echo $row['username'] ?>">
+                                <h3><?php echo $row['username'] ?></h3>
+                            </a>
                         </div>
-                        <div class="col-10">
-                            <h3><?php echo $row['username'] ?></h3>
-                            <div class="view">
+                        <div class="card-body">
+                            <div class="view p-3 pb-2">
                                 <p><?php echo $row['email'] ?></p>
                                 <span class="pull-right"><b>Join Date:</b> <?php echo $row['join_date'] ?></span>
                             </div>

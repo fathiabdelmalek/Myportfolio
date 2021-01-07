@@ -1,8 +1,8 @@
 <?php
 session_start();
-$title = 'Categories Manage';
+$title = 'Categories Management';
 include 'init.php';
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect();
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
@@ -29,24 +29,34 @@ $rows = selectRecords('*', 'categories', null, 'id', $sort);
                 There is no categories
             <?php } else { foreach($rows as $row) { ?>
                 <div class="cat">
-                    <div class="hidden-btn">
-                        <a class="btn btn-sm btn-info" href="editCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
-                        <a class="btn btn-sm btn-danger confirm-delete" href="deleteCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
-                    </div>
-                    <h3><?php echo $row['title'] ?></h3>
-                    <div class="view">
-                        <p>
-                            <?php echo $row['description'] ?>
-                        </p>
-                        <span class="<?php if($row['comments'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                            Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
-                        </span>
-                        <span class="<?php if($row['ads'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
-                            Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
-                        </span>
-                        <?php if($row['visibility'] == 0) { ?>
-                            <span class="hidden"><i class="fa fa-eye-slash"></i> Hidden</span>
-                        <?php } ?>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="toggle-info pull-right">
+                                <i class="fa fa-arrow-up"></i>
+                            </span>
+                            <div class="hidden-btn">
+                                <a class="btn btn-sm btn-info" href="editCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-edit"></i>Edit</a>
+                                <a class="btn btn-sm btn-danger confirm-delete" href="deleteCategory.php?id=<?php echo $row['id'] ?>"><i class="fa fa-close"></i>Delete</a>
+                            </div>
+                            <img class="pull-left" src="icon.png" alt="user image" width="35" height="35">
+                            <a href="#">
+                                <h3><?php echo $row['title'] ?></h3>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="view p-3 pb-2">
+                                <p><?php echo $row['description'] ?></p>
+                                <span class="<?php if($row['comments'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
+                                    Comments is <?php if($row['comments'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
+                                </span>
+                                <span class="<?php if($row['ads'] == 1) echo 'enabled'; else echo 'disabled'; ?>">
+                                    Ads is <?php if($row['ads'] == 1) echo 'Enabled'; else echo 'Disabled'; ?>
+                                </span>
+                                <?php if($row['visibility'] == 0) { ?>
+                                    <span class="hidden"><i class="fa fa-eye-slash"></i> Hidden</span>
+                                <?php } ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>

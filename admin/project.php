@@ -2,7 +2,7 @@
 session_start();
 $title = isset($_GET['name']) ? $_GET['name'] . ' Project' : header('location: index.php');
 include 'init.php';
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect();
 $name = $_GET['name'];
 $sql = $con->prepare("SELECT * FROM projects_view WHERE name=:name");
@@ -11,7 +11,7 @@ $sql->execute();
 $row = $sql->fetch();
 $comments = selectRecords('*', 'comments_view', "projectname='$name'");
 $sql = $con->prepare("SELECT id FROM users WHERE username=:username");
-$username = $_SESSION['user'];
+$username = $_SESSION['admin'];
 $sql->bindParam('username', $username);
 $sql->execute();
 $user = $sql->fetch();

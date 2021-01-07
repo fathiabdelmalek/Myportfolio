@@ -1,11 +1,13 @@
 <?php
 session_start();
-$title = 'Admin Login';
 $nav = '';
+$title = 'Admin Login';
 include 'init.php';
-if(isset($_SESSION['user'])) {
-    $row = selectRecords('username, isadmin', 'users');
-    if($row['isadmin'] == 'Y')
+if(isset($_SESSION['admin'])) {
+    $sql = $con->prepare("SELECT * FROM users WHERE username=?");
+    $sql->execute(array($_SESSION['admin']));
+    $row = $sql->fetch();
+    if($row['is_admin'] == 1)
         redirect('dashboard.php');
     else
         redirect('../index.php');
@@ -17,14 +19,14 @@ $errors = array(
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = test_input($_POST['email']);
     $password = sha1(test_input($_POST['password']));
-    $rows = selectRecords('username, email, password', 'users', "isadmin='Y'");
+    $rows = selectRecords('username, email, password', 'users', "is_admin=1");
     foreach($rows as $row) {
         if($row['email'] != $email)
             continue;
         else if($row['password'] != $password)
             $errors['pass'] = 'The password is not correct';
         if(($errors['email'] == '') && ($errors['pass'] == '')) {
-            $_SESSION['user'] = $row['username'];
+            $_SESSION['admin'] = $row['username'];
             redirect('dashboard.php');
         }
     }

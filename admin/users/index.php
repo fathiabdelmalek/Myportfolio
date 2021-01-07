@@ -3,7 +3,7 @@ session_start();
 $title = 'Users Manage';
 include '../init.php';
 echo ROOT;
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect(1);
 
 $sql = $con->prepare("SELECT * FROM users WHERE id != 1");

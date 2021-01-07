@@ -2,7 +2,7 @@
 session_start();
 $title = isset($_GET['username']) ? $_GET['username'] : header('location: index.php');
 include 'init.php';
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect();
 $username = $_GET['username'];
 $sql = $con->prepare("SELECT * FROM users WHERE username=:username");

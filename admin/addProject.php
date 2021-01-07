@@ -2,7 +2,7 @@
 session_start();
 $title = 'Add new project';
 include 'init.php';
-if(!isset($_SESSION['user']))
+if(!isset($_SESSION['admin']))
     redirect();
 $errors = array(
     'name'          => '',

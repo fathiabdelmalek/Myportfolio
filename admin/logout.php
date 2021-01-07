@@ -2,5 +2,5 @@
 session_start();
 session_unset();
 session_destroy();
-redirect();
+header('location: index.php');
 exit();

@@ -13,15 +13,23 @@
       <change beforePath="$PROJECT_DIR$/admin/deleteProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/deleteProject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/edit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/editCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/editCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/editProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/editProject.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/nav.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/layout/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/layout/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/project.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/projects.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/users/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/templates/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myportfolio.sql" beforeDir="false" afterPath="$PROJECT_DIR$/myportfolio.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +100,14 @@
       <workItem from="1608465520325" duration="7011000" />
       <workItem from="1608500887231" duration="5432000" />
       <workItem from="1608537446528" duration="16629000" />
+      <workItem from="1608724634483" duration="6232000" />
+      <workItem from="1608972333136" duration="5554000" />
+      <workItem from="1609069909371" duration="3913000" />
+      <workItem from="1609200384673" duration="3324000" />
+      <workItem from="1609243857326" duration="6583000" />
+      <workItem from="1609452140537" duration="443000" />
+      <workItem from="1609458282137" duration="1405000" />
+      <workItem from="1609855707204" duration="2148000" />
     </task>
     <servers />
   </component>

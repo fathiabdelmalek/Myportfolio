@@ -6,14 +6,14 @@ CREATE TABLE `users`(
 	`username` 		VARCHAR(50)  	NOT NULL UNIQUE,
 	`email`    		VARCHAR(100) 	NOT NULL UNIQUE,
 	`password` 		VARCHAR(400) 	NOT NULL,
-	`fullname` 		VARCHAR(50),
+	`full_name` 		VARCHAR(50),
     `join_date` 	DATE			NOT NULL DEFAULT(now()),
-	`isadmin`  		ENUM('Y','N')	NOT NULL DEFAULT('N'),
+	`is_admin`  	BOOLEAN			NOT NULL DEFAULT(0),
 	CONSTRAINT `user_id` PRIMARY KEY (`id`)
 );
-INSERT INTO users (`username`, `email`, `password`, `isadmin`)
-VALUES 	('Fathi Admin', 'fathi@gmail.com', sha1('123'), 'Y'),
-		('Choukry Admin', 'choukry@gmail.com', sha1('123'), 'Y');
+INSERT INTO users (`username`, `email`, `password`, `is_admin`)
+VALUES 	('Fathi Admin', 'fathi@gmail.com', sha1('123'), 1),
+		('Choukry Admin', 'choukry@gmail.com', sha1('123'), 1);
 INSERT INTO users (`username`, `email`, `password`)
 VALUES	('Fathi', 'abdelmalek.fathi.2001@gmail.com', sha1('Fathi_CJPP@2001')),
 		('Youma', 'youma@gmail.com', sha1('123')),
@@ -31,8 +31,8 @@ CREATE TABLE `categories`(
 INSERT INTO `categories` (`title`, `description`)
 VALUES 	('Web Dev', 'web development with any language (php, java, c#, python, js...)');
 INSERT INTO `categories` (`title`)
-VALUES 	('Game Dev'),
-		('Desktop Apps Dev'),
+VALUES 	('Desktop Apps Dev'),
+		('Game Dev'),
         ('Design');
 
 CREATE TABLE `projects`(
@@ -52,7 +52,9 @@ CREATE TABLE `projects`(
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 INSERT INTO `projects` (`name`, `description`, `category_id`, `user_id`)
-VALUES ('Flying Rocket', 'a game was created with unity game engine', 1, 2);
+VALUES 	('Flying Rocket', 'a game was created with unity game engine', 3, 3),
+		('Myportfolio', 'a web site created with basic knowledg in php', 1, 1),
+		('Gallery Managment', 'a desktop application to manage your gallery', 2, 3);
 
 CREATE OR REPLACE VIEW `projects_view` AS 
 SELECT `projects`.*, `categories`.`title` AS `category_title`, `users`.`username` FROM `projects`
