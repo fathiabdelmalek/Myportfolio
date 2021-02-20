@@ -156,3 +156,26 @@ a {
     margin-left: 5px;
     padding: 2px 5px;
 }
+
+
+.information {
+    margin-top: 20px;
+}
+
+.information ul {
+    margin: 0;
+    padding: 0;
+}
+
+.information li {
+    padding: 10px;
+}
+
+.information li:nth-child(odd) {
+    background-color: #EEE;
+}
+
+.information li span {
+    display: inline-block;
+    width: 120px;
+}

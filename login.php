@@ -11,14 +11,17 @@ $errors = array(
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = test_input($_POST['email']);
     $password = sha1(test_input($_POST['password']));
-    $rows = selectRecords('username, email, password', 'users');
+    $rows = selectRecords('username, email, password', 'users', 'is_admin');
     foreach($rows as $row) {
         if($row['email'] != $email)
             continue;
         else if($row['password'] != $password)
             $errors['pass'] = 'The password is not correct';
         if(($errors['email'] == '') && ($errors['pass'] == '')) {
-            $_SESSION['user'] = $row['username'];
+            if($row['is_admin'])
+                $_SESSION['admin'] = $row['username'];
+            else
+                $_SESSION['user'] = $row['username'];
             redirect();
         }
     }

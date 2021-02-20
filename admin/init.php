@@ -1,7 +1,7 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', dirname(__FILE__));
-//define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+//define('ROOT', dirname(__FILE__));
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 //$css    = ROOT . 'admin/layout/css/';
 //$fonts  = ROOT . 'admin/layout/fonts/';
@@ -13,20 +13,20 @@ define('ROOT', dirname(__FILE__));
 //$plg    = ROOT . 'admin/includes/plugins/';
 //$inc    = ROOT . 'admin/includes/templates/';
 
-//$css    = ROOT . 'layout/css/';
-//$fonts  = ROOT . 'layout/fonts/';
-//$images = ROOT . 'layout/images/';
-//$js     = ROOT . 'layout/js/';
+//$css    = ROOT . '/layout/css/';
+//$fonts  = ROOT . '/layout/fonts/';
+//$images = ROOT . '/layout/images/';
+//$js     = ROOT . '/layout/js/';
 //
-//$fun    = ROOT . 'includes/functions/';
-//$lng    = ROOT . 'includes/languages/';
-//$plg    = ROOT . 'includes/plugins/';
-//$inc    = ROOT . 'includes/templates/';
+//$fun    = ROOT . '/includes/functions/';
+//$lng    = ROOT . '/includes/languages/';
+//$plg    = ROOT . '/includes/plugins/';
+//$inc    = ROOT . '/includes/templates/';
 
-//$css    = ROOT . DS . 'layout' . DS . 'css' . DS;
-//$fonts  = ROOT . DS . 'layout' . DS . 'fonts' . DS;
-//$images = ROOT . DS . 'layout' . DS . 'images' . DS;
-//$js     = ROOT . DS . 'layout' . DS . 'js' . DS;
+//$css    = ROOT . 'layout' . DS . 'css' . DS;
+//$fonts  = ROOT . 'layout' . DS . 'fonts' . DS;
+//$images = ROOT . 'layout' . DS . 'images' . DS;
+//$js     = ROOT . 'layout' . DS . 'js' . DS;
 //
 //$fun    = ROOT . DS . 'includes' . DS . 'functions' . DS;
 //$lng    = ROOT . DS . 'includes' . DS . 'languages' . DS;
