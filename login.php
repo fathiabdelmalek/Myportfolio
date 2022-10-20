@@ -11,19 +11,26 @@ $errors = array(
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = test_input($_POST['email']);
     $password = sha1(test_input($_POST['password']));
-    $rows = selectRecords('username, email, password', 'users', 'is_admin');
-    foreach($rows as $row) {
-        if($row['email'] != $email)
-            continue;
-        else if($row['password'] != $password)
+    $sql = $con->prepare("SELECT username, email, password, is_admin FROM users WHERE email=:email");
+    $sql->bindParam('email', $email);
+    $sql->execute();
+    $count = $sql->rowCount();
+    if ($count > 0) {
+        $row = $sql->fetch();
+        if ($row['password'] != $password) {
+            $errors['email'] = '';
             $errors['pass'] = 'The password is not correct';
-        if(($errors['email'] == '') && ($errors['pass'] == '')) {
-            if($row['is_admin'])
+        }
+        else {
+            if ($row['is_admin'] == 1)
                 $_SESSION['admin'] = $row['username'];
             else
                 $_SESSION['user'] = $row['username'];
             redirect();
         }
+    } else {
+        $errors['email'] = 'This email does not exit';
+        $errors['pass'] = '';
     }
 }
 ?>
@@ -38,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                         <div class="form-group">
                             <label class="form-label">Email address</label>
-                            <input required class="form-control" type="email" name="email" placeholder="Email">
+                            <input required class="form-control" type="email" name="email" placeholder="Email" value="<?php echo $email?>">
                             <span class="alert-sm alert-danger"><?php echo $errors['email']; ?></span>
                         </div><br>
                         <div class="form-group">

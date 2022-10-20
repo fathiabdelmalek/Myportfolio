@@ -35,9 +35,13 @@ $(function () {
 
     $('.options span').click(function() {
         $(this).addClass('active').siblings('span').removeClass('active');
-        if($(this).data('view') === 'full')
+        if($(this).data('view') === 'full') {
             $('.cat .view').fadeIn(200);
-        else
+            $('.cat .toggle-info').html('<i class="fa fa-arrow-up"></i>');
+        }
+        else {
             $('.cat .view').fadeOut(200);
+            $('.cat .toggle-info').html('<i class="fa fa-arrow-down"></i>');
+        }
     });
 });

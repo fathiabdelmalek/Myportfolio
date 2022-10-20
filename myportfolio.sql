@@ -6,7 +6,7 @@ CREATE TABLE `users`(
 	`username` 		VARCHAR(50)  	NOT NULL UNIQUE,
 	`email`    		VARCHAR(100) 	NOT NULL UNIQUE,
 	`password` 		VARCHAR(400) 	NOT NULL,
-	`full_name` 		VARCHAR(50),
+	`full_name`     VARCHAR(50),
     `join_date` 	DATE			NOT NULL DEFAULT(now()),
 	`is_admin`  	BOOLEAN			NOT NULL DEFAULT(0),
 	CONSTRAINT `user_id` PRIMARY KEY (`id`)

@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($sql->rowCount() > 0)
         $errors['title'] = "This title is already used";
     if(empty($errors['title'])) {
-        insertRecored('categories',
+        insertRecord('categories',
                     'title, description, visibility, comments, ads',
                 "'$title', '$desc', '$visibility', '$comments', '$ads'");
         redirect('categories.php');

@@ -1,6 +1,4 @@
 <?php
-define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', dirname(__FILE__));
 
 $css    = 'layout/css/';
 $fonts  = 'layout/fonts/';

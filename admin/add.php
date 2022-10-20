@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($password2 != $password1)
         $errors['pass2'] = "Must be the same as Password";
     if(empty($errors['name']) && empty($errors['email']) && empty($errors['pass1']) && empty($errors['pass2'])) {
-        insertRecored('users', 'username, email, password', "'$username', '$email', '$sha1'");
+        insertRecord('users', 'username, email, password', "'$username', '$email', '$sha1'");
         redirect('users.php');
     }
 }

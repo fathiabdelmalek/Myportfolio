@@ -19,16 +19,23 @@ $errors = array(
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = test_input($_POST['email']);
     $password = sha1(test_input($_POST['password']));
-    $rows = selectRecords('username, email, password', 'users', "is_admin=1");
-    foreach($rows as $row) {
-        if($row['email'] != $email)
-            continue;
-        else if($row['password'] != $password)
+    $sql = $con->prepare("SELECT username, email, password FROM users WHERE email=:email");
+    $sql->bindParam('email', $email);
+    $sql->execute();
+    $count = $sql->rowCount();
+    if ($count > 0) {
+        $row = $sql->fetch();
+        if ($row['password'] != $password) {
+            $errors['email'] = '';
             $errors['pass'] = 'The password is not correct';
-        if(($errors['email'] == '') && ($errors['pass'] == '')) {
+        }
+        else {
             $_SESSION['admin'] = $row['username'];
             redirect('dashboard.php');
         }
+    } else {
+        $errors['email'] = 'This email does not exit';
+        $errors['pass'] = '';
     }
 }
 ?>

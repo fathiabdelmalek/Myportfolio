@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin']))
     redirect();
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
-$rows = selectRecords('*', 'users', 'id!=1', 'id', $sort);
+$rows = selectRecords('*', 'users', null, 'id', $sort);
 ?>
 <h1 class="text-center">Users Management</h1>
 <div class="container cats">

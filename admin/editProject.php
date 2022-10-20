@@ -15,6 +15,7 @@ $sql = $con->prepare("SELECT * FROM projects_view WHERE id=:id");
 $sql->bindParam('id', $id);
 $sql->execute();
 $row = $sql->fetch();
+//$row = selectRecords('*', 'projects_view', 'id=' . $id);
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name           = test_input($_POST['name']);
     $description    = test_input($_POST['description']);
@@ -45,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="col-lg-8">
             <div class="card shadow-lg border-0 rounded-lg mt-4">
                 <div class="card-header">
-                    <h3 class="text-center font-weight-light my-4">Add New Project</h3>
+                    <h3 class="text-center font-weight-light my-4">Edit Project</h3>
                 </div>
                 <div class="card-body">
                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
@@ -104,6 +105,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-8">
+            <table class="table">
+                <tr>
+                    <th>Comment</th>
+                    <th>User Name</th>
+                    <th>Added Data</th>
+                    <th>Control</th>
+                </tr>
+                <?php
+                $rows = selectRecords('*', 'comments_view', 'project_id=' . $row['id']);
+                echo sizeof($rows);
+                foreach($rows as $row) {
+                    echo "<tr>";
+                        echo "<td>" . $row['comment'] . "</td>";
+                        echo "<td>" . $row['username'] . "</td>";
+                        echo "<td>" . $row['add_date'] . "</td>";
+                        echo "<td><a class='btn btn-sm btn-danger confirm-delete' href='deleteComment.php?id=" . $row['id'] . "'><i class='fa fa-close'></i>Delete</a></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
         </div>
     </div>
 </article>

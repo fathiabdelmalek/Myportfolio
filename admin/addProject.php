@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(empty($user))
         $errors['user'] = 'User can\'t be empty';
     if(empty($errors['name']) && empty($errors['description']) && empty($errors['category']) && empty($errors['user'])) {
-        insertRecored('projects',
+        insertRecord('projects',
                     'name, description, visibility, user_id, category_id',
                     "'$name', '$description', '$visibility', '$user', '$category'");
         redirect('projects.php');

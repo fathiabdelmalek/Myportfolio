@@ -25,7 +25,7 @@
                                     <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li>
                                     <?php if(isset($_SESSION['admin'])) { ?>
-                                        <li><a href="/admin" class="dropdown-item">Dashboard</a></li>
+                                        <li><a href="/Myportfolio/admin" class="dropdown-item">Dashboard</a></li>
                                     <?php } ?>
                                     <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                                 </ul>

@@ -1,57 +1,19 @@
 <?php
-define('DS', DIRECTORY_SEPARATOR);
-//define('ROOT', dirname(__FILE__));
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-//$css    = ROOT . 'admin/layout/css/';
-//$fonts  = ROOT . 'admin/layout/fonts/';
-//$images = ROOT . 'admin/layout/images/';
-//$js     = ROOT . 'admin/layout/js/';
-//
-//$fun    = ROOT . 'admin/includes/functions/';
-//$lng    = ROOT . 'admin/includes/languages/';
-//$plg    = ROOT . 'admin/includes/plugins/';
-//$inc    = ROOT . 'admin/includes/templates/';
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= '/Myportfolio';
+$path2 = '/Myportfolio';
 
-//$css    = ROOT . '/layout/css/';
-//$fonts  = ROOT . '/layout/fonts/';
-//$images = ROOT . '/layout/images/';
-//$js     = ROOT . '/layout/js/';
-//
-//$fun    = ROOT . '/includes/functions/';
-//$lng    = ROOT . '/includes/languages/';
-//$plg    = ROOT . '/includes/plugins/';
-//$inc    = ROOT . '/includes/templates/';
 
-//$css    = ROOT . 'layout' . DS . 'css' . DS;
-//$fonts  = ROOT . 'layout' . DS . 'fonts' . DS;
-//$images = ROOT . 'layout' . DS . 'images' . DS;
-//$js     = ROOT . 'layout' . DS . 'js' . DS;
-//
-//$fun    = ROOT . DS . 'includes' . DS . 'functions' . DS;
-//$lng    = ROOT . DS . 'includes' . DS . 'languages' . DS;
-//$plg    = ROOT . DS . 'includes' . DS . 'plugins' . DS;
-//$inc    = ROOT . DS . 'includes' . DS . 'templates' . DS;
+$fun    = $path . '/includes/functions/';
+$lng    = $path . '/includes/languages/';
+$plg    = $path . '/includes/plugins/';
+$inc    = $path . '/admin/includes/templates/';
 
-//$css    = ROOT . DS . 'layout/css/';
-//$fonts  = ROOT . DS . 'layout/fonts/';
-//$images = ROOT . DS . 'layout/images/';
-//$js     = ROOT . DS . 'layout/js/';
-//
-//$fun    = ROOT . DS . 'includes/functions/';
-//$lng    = ROOT . DS . 'includes/languages/';
-//$plg    = ROOT . DS . 'includes/plugins/';
-//$inc    = ROOT . DS . 'includes/templates/';
-
-$css    = 'layout/css/';
-$fonts  = 'layout/fonts/';
-$images = 'layout/images/';
-$js     = 'layout/js/';
-
-$fun    = 'includes/functions/';
-$lng    = 'includes/languages/';
-$plg    = 'includes/plugins/';
-$inc    = 'includes/templates/';
+$css    = $path2 . '/layout/css/';
+$fonts  = $path2 . '/layout/fonts/';
+$images = $path2 . '/layout/images/';
+$js     = $path2 . '/layout/js/';
 
 include 'connect.php';
 

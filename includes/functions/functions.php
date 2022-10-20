@@ -50,7 +50,7 @@ function selectRecords($select, $table, $value = null, $ordering = null, $sortin
     return $sql->fetchAll();
 }
 
-function insertRecored ($table, $cols, $values) {
+function insertRecord ($table, $cols, $values) {
     global $con;
     $sql = $con->prepare("INSERT INTO $table ($cols) VALUES ($values)");
     $sql->execute();

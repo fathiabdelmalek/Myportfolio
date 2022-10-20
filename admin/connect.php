@@ -1,8 +1,8 @@
 <?php
     
     $dsn = 'mysql:host=localhost;dbname=myportfolio';
-    $user = 'root';
-    $pass = '';
+    $user = 'fathi';
+    $pass = '2001';
     $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
     );
