@@ -1,17 +1,20 @@
 <?php
 session_start();
-$title = 'Home';
+$title = 'Projects';
 include 'init.php';
 $arr = array('ASC', 'DESC');
 $sort = (isset($_GET['sort']) && in_array($_GET['sort'], $arr)) ? test_input($_GET['sort']) : 'ASC';
 $rows = selectRecords('*', 'projects_view', null, 'id', $sort);
 ?>
-<h1 class="text-center">Home Page</h1>
+    <h1 class="text-center">Projects</h1>
 <div class="container cats">
     <?php if (isset($_GET['message'])) echo '<div class="alert alert-warning">' . $_GET['message'] . '</div>'; ?>
+    <?php if ($_SESSION['user']) { ?>
+        <a href="addProject.php" class="btn btn-primary"><i class="fa fa-plus"></i> New Project</a><br><br>
+    <?php } ?>
     <div class="card">
         <div class="card-header">
-            Latest Projects
+            Projects
             <div class="options pull-right">
                 <i class="fa fa-sort"></i> Ordering: [
                 <a <?php if($sort == 'ASC') { echo 'class="active"'; } ?> href="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>?sort=ASC"><i class="fa fa-sort-alpha-asc"></i></a> |
@@ -24,8 +27,7 @@ $rows = selectRecords('*', 'projects_view', null, 'id', $sort);
         <div class="card-body">
             <?php if(empty($rows)) { ?>
                 There is no projects
-            <?php } else foreach ($rows as $row) {
-            if ($row['visibility'] == 1) { ?>
+            <?php } else foreach ($rows as $row) { if ($row['visibility'] == 1) { ?>
             <div class="cat">
                 <div class="card">
                     <div class="card-header">

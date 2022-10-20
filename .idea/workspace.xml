@@ -3,58 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="aae924b9-d190-4c29-80ca-13fe7bfe92eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/addCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/addCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/addProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/addProject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/connect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/editProject.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/editProject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/functions/functions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/templates/footer.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/templates/header.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/templates/nav.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/images/ui-icons_444444_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/layout/images/ui-icons_444444_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/images/ui-icons_555555_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/layout/images/ui-icons_555555_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/images/ui-icons_777620_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/layout/images/ui-icons_777620_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/images/ui-icons_777777_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/layout/images/ui-icons_777777_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/images/ui-icons_cc0000_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/layout/images/ui-icons_cc0000_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/images/ui-icons_ffffff_256x240.png" beforeDir="false" afterPath="$PROJECT_DIR$/layout/images/ui-icons_ffffff_256x240.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/jquery-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/css/jquery.selectBoxIt.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/js/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/layout/js/jquery.selectBoxIt.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/connect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/functions/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/templates/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/templates/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/layout/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/images/ui-icons_444444_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/images/ui-icons_555555_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/images/ui-icons_777620_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/images/ui-icons_777777_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/css/jquery-ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/layout/css/jquery-ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/layout/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myportfolio.sql" beforeDir="false" afterPath="$PROJECT_DIR$/myportfolio.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +95,7 @@
       <workItem from="1613155588775" duration="2134000" />
       <workItem from="1666289144596" duration="3565000" />
       <workItem from="1666295050908" duration="5341000" />
+      <workItem from="1666306150914" duration="2926000" />
     </task>
     <servers />
   </component>

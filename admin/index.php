@@ -30,6 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['pass'] = 'The password is not correct';
         }
         else {
+            $_SESSION['user'] = $row['username'];
             $_SESSION['admin'] = $row['username'];
             redirect('dashboard.php');
         }

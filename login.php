@@ -22,10 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['pass'] = 'The password is not correct';
         }
         else {
+            $_SESSION['user'] = $row['username'];
             if ($row['is_admin'] == 1)
                 $_SESSION['admin'] = $row['username'];
-            else
-                $_SESSION['user'] = $row['username'];
             redirect();
         }
     } else {

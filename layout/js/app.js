@@ -26,7 +26,7 @@ $(function () {
     });
 
     $('.confirm-delete').click(function () {
-        return confirm("Are you sure you want to delete this user?");
+        return confirm("Are you sure you want to delete this record?");
     });
 
     $('.cat h3').click(function() {
